@@ -1,0 +1,40 @@
+{
+  "name": "booklists",
+  "version": "0.0.1",
+  "description": "booklists for final project",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatriciaGauntt/booklists.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatriciaGauntt/booklists/issues"
+  },
+  "homepage": "https://github.com/PatriciaGauntt/booklists#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "config": "^4.1.1",
+    "esm": "^3.2.25",
+    "express": "^5.1.0",
+    "mongodb": "^7.0.0",
+    "uuid": "^13.0.0",
+    "winston": "^3.18.3",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@eslint/json": "^0.14.0",
+    "eslint": "^9.39.1",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "globals": "^16.5.0",
+    "nodemon": "^3.1.10",
+    "typescript-eslint": "^8.46.3"
+  }
+}

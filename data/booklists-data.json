@@ -1,0 +1,224 @@
+[
+    {
+      "id": "abc123",
+      "title": "Dungeon Crawler Carl",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2020,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc124",
+      "title": "Carl's Doomsday Scenario",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2021,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc125",
+      "title": "The Dungeon Anarchist's Cookbook",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2021,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc126",
+      "title": "The Gate of the Feral Gods",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2021,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc127",
+      "title": "The Butcher's Masquerade",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2022,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc128",
+      "title": "The Eye of the Bedlam Bride",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2023,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc129",
+      "title": "This Inevitable Ruin",
+      "author_first_name": "Matt",
+      "author_last_name": "Dinniman",
+      "publication_date": 2024,
+      "series_name": "The Dungeon Crawler Carl",
+      "location": "Office",
+      "bookcase": 3
+    },
+    {
+      "id": "abc130",
+      "title": "Good Dog Carl",
+      "author_first_name": "Alexandra ",
+      "author_last_name": "Day",
+      "publication_date": 1985,
+      "series_name": "Good Dog Carl Series",
+      "location": "Office",
+      "bookcase": 2
+    },
+    {
+      "id": "abc131",
+      "title": "Divergent",
+      "author_first_name": "Veronica",
+      "author_last_name": "Roth",
+      "publication_date": 2011,
+      "series_name": "The Divergent Series",
+      "location": "Office",
+      "bookcase": 1
+    },
+    {
+      "id": "abc132",
+      "title": "Artemis Fowl",
+      "author_first_name": "Eoin",
+      "author_last_name": "Colfer",
+      "publication_date": 2001,
+      "series_name": "The Fowl Adventures",
+      "location": "Office",
+      "bookcase": 1
+    },
+    {
+      "id": "abc133",
+      "title": "Homeland ",
+      "author_first_name": "R.A.",
+      "author_last_name": "Salvatore",
+      "publication_date": 1990,
+      "series_name": "The Dark Elf Trilogy",
+      "location": "Living Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc134",
+      "title": "Exile",
+      "author_first_name": "R.A.",
+      "author_last_name": "Salvatore",
+      "publication_date": 1990,
+      "series_name": "The Dark Elf Trilogy",
+      "location": "Living Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc135",
+      "title": "Sojourn",
+      "author_first_name": "R.A.",
+      "author_last_name": "Salvatore",
+      "publication_date": 1991,
+      "series_name": "The Dark Elf Trilogy",
+      "location": "Living Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc136",
+      "title": "Charlotte's Web",
+      "author_first_name": "E.B.",
+      "author_last_name": "White",
+      "publication_date": 1952,
+      "location": "School Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc137",
+      "title": "The Secret Garden",
+      "author_first_name": "Frances",
+      "author_last_name": "Burnett",
+      "publication_date": 1911,
+      "location": "School Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc138",
+      "title": "Tales from King Arthur",
+      "author_first_name": "Andrew ",
+      "author_last_name": "Lang",
+      "publication_date": 1993,
+      "location": "School Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc139",
+      "title": "Alice's Adventures in Wonderland",
+      "author_first_name": "Lewis ",
+      "author_last_name": "Carroll",
+      "publication_date": 2010,
+      "location": "School Room",
+      "bookcase": 2
+    },
+    {
+      "id": "abc140",
+      "title": "Death on the Nile",
+      "author_first_name": "Agatha Christie",
+      "publication_date": 1937,
+      "location": "School Room",
+      "bookcase": 3
+    },
+    {
+      "id": "abc141",
+      "title": "The Only Good Indians",
+      "author_first_name": "Stephen",
+      "author_last_name": "Jones",
+      "publication_date": 2020,
+      "location": "School Room",
+      "bookcase": 3
+    },
+    {
+      "id": "abc142",
+      "title": "National Audubon Society Field Guide to the Night Sky",
+      "author_first_name": "Mark",
+      "author_last_name": "Chartrand",
+      "publication_date": 2022,
+      "location": "School Room",
+      "bookcase": 4
+    },
+    {
+      "id": "abc143",
+      "title": "Tokyo Ghoul: re 1",
+      "author_first_name": "Sui",
+      "author_last_name": "Ishida",
+      "publication_date": 2014,
+      "series_name": "Tokyo Ghoul: re",
+      "location": "School Room",
+      "bookcase": 5
+    },
+    {
+      "id": "abc144",
+      "title": "Tokyo Ghoul: re 2",
+      "author_first_name": "Sui",
+      "author_last_name": "Ishida",
+      "publication_date": 2014,
+      "series_name": "Tokyo Ghoul: re",
+      "location": "School Room",
+      "bookcase": 5
+    },
+    {
+      "id": "abc145",
+      "title": "Tokyo Ghoul: re 3",
+      "author_first_name": "Sui",
+      "author_last_name": "Ishida",
+      "publication_date": 2014,
+      "series_name": "Tokyo Ghoul: re",
+      "location": "School Room",
+      "bookcase": 5
+    }
+]

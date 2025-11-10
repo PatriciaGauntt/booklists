@@ -1,0 +1,11 @@
+{
+  "applicationName": "booklists-api",
+  "logLevel": "debug",
+  "mongodb": {
+    "url": "mongodb://127.0.0.1:27017",
+    "database": "arca",
+    "minPoolSize": 2,
+    "maxPoolSize": 10,
+    "applicationName": "ArCA-BookList"
+  }
+}
