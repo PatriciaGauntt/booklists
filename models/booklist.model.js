@@ -44,28 +44,31 @@ export class BookListModel {
     });
 
     const collection = this.getCollection();
-    const result = await collection.updateOne({ id }, updateStatement, { returnDocument: 'after' });
-    delete result._id;
-    return result;
+    const result = await collection.findOneAndUpdate(
+      { id },
+      updateStatement,
+      { returnDocument: 'after', projection: { _id: 0 } },
+    );
+
+    return result.value;
   }
 
   static async replaceBookList(id, bookList) {
     logger.debug(`Model : replacebookList, id: ${id}`);
     const collection = this.getCollection();
-    const result = await collection.replaceOne({ id }, bookList);
+    const result = await collection.findOneAndReplace(
+      { id },
+      bookList,
+      { returnDocument: 'after', projection: { _id: 0 } },
+    );
 
-    if (!result.modifiedCount) {
-      return false;
-    }
-    delete result._id;
-    return result;
+    return result.value;
   }
 
   static async deleteBookList(id) {
     logger.debug(`Model : deleteBookList, id: ${id}`);
     const collection = this.getCollection();
-    const result = await collection.deleteOne({ id });
-
-    return result.deletedCount > 0;
+    const result = await collection.findOneAndDelete({ id });
+    return result.value;
   }
 }

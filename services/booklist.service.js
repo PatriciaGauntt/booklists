@@ -22,8 +22,8 @@ export class BookListService {
   }
 
   static createBookList(bookList) {
-    if (!bookList.item || !bookList.item.trim()) {
-      const error = new Error('The "item" field cannot be empty or just spaces.');
+    if (!bookList.title|| !bookList.title.trim()) {
+      const error = new Error('The "title" field cannot be empty or just spaces.');
       error.statusCode = 400;
       throw error;
   }
@@ -38,7 +38,7 @@ export class BookListService {
 
     const valid = validate(newBookList);
     if (!valid) {
-      logger.warn('Validation error on creating a new TO DO Item!', validate.errors);
+      logger.warn('Validation error on creating a new book!', validate.errors);
       throw validate.errors;
     }
 
@@ -47,15 +47,15 @@ export class BookListService {
   }
 
   static async updateBookList(id, bookList) {
-    if (bookList.item !== undefined && !bookList.item.trim()) {
-      const error = new Error('The "item" field cannot be empty or just spaces.');
+    if (bookList.title !== undefined && !bookList.title.trim()) {
+      const error = new Error('The "title" field cannot be empty or just spaces.');
       error.statusCode = 400;
       throw error;
     }
     const existingBookList = await BookListModel.getBookList(id);
 
     if (!existingBookList) {
-      throw new Error(`To Do Item with ${id} not found`);
+      throw new Error(`Book with ${id} not found`);
     }
 
     const updateBookList = {
@@ -70,24 +70,24 @@ export class BookListService {
 
     const valid = validate(updateBookList);
     if (!valid) {
-      logger.warn('Validation error on updating a TO DO Item!', validate.errors);
+      logger.warn('Validation error on updating a book!', validate.errors);
       throw validate.errors;
     }
 
     logger.debug(`Service : updateBookList, id: ${id}`);
     return BookListModel.updateBookList(id, updateBookList);
   }
-
+//fix this
   static async replaceBookList(id, bookList) {
-    if (bookList.item !== undefined && !bookList.item.trim()) {
-      const error = new Error('The "item" field cannot be empty or just spaces.');
+    if (bookList.title !== undefined && !bookList.title.trim()) {
+      const error = new Error('The "title" field cannot be empty or just spaces.');
       error.statusCode = 400;
       throw error;
     }
     const existingBookList = await BookListModel.getBookList(id);
 
     if (!existingBookList) {
-      throw new Error(`To Do Item with ${id} not found`);
+      throw new Error(`Book with ${id} not found`);
     }
 
     const replaceBookList = {
@@ -102,7 +102,7 @@ export class BookListService {
 
       const valid = validate(replaceBookList);
       if (!valid) {
-        logger.warn('Validation error on replacing a TO DO Item!', validate.errors);
+        logger.warn('Validation error on replacing a book!', validate.errors);
       throw validate.errors;
     }
 

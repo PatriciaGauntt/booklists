@@ -8,7 +8,7 @@
     "id",
     "title",
     "author_last_name",
-    "publication_date",
+    "publication_year",
     "location"
   ],
   "additionalProperties": false,
@@ -25,7 +25,7 @@
     "author_last_name": {
       "type": "string"
     },
-    "publication_date": {
+    "publication_year": {
       "type": "number"
     },
     "series_name": {

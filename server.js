@@ -25,5 +25,5 @@ const mongoOptions = {
 await mongo.init(mongoConfig.url, mongoConfig.database, mongoOptions);
 
 app.listen(port, () => {
-  logger.info(`${new Date().toISOString()}: TODO List API listening at http://localhost:${port}`);
+  logger.info(`${new Date().toISOString()}: Book List API listening at http://localhost:${port}`);
 });

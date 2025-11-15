@@ -48,10 +48,6 @@ export class BookListController {
     try {
       logger.debug(`Controller : replaceBookList, id: ${req.params.id}`);
       const result = await BookListService.replaceBookList(req.params.id, req.body);
-      if (!result) {
-        res.sendStatus(404);
-        return;
-      }
       res.status(200).json(result);
     } catch (err) {
       logger.error(`Error replacing Book: ${err.message}`);
