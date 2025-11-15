@@ -4,7 +4,8 @@ import { BookListService } from '../services/booklist.service.js';
 export class BookListController {
   static async getBookLists(req, res, next) {
     logger.debug('Controller : getBookLists');
-    const resultCursor = await BookListService.getBookLists();
+    const searchTerm = req.query.search;
+    const resultCursor = await BookListService.getBookLists(searchTerm);
     res.status(200).json(await resultCursor.toArray());
   }
 

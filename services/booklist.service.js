@@ -11,9 +11,9 @@ addFormats(ajv);
 const validate = ajv.compile(bookListSchema);
 
 export class BookListService {
-  static getBookLists() {
+  static getBookLists(searchTerm) {
     logger.debug('Service : getBookLists');
-    return BookListModel.getBookLists();
+    return BookListModel.getBookLists(searchTerm);
   }
 
   static getBookList(id) {
@@ -77,7 +77,7 @@ export class BookListService {
     logger.debug(`Service : updateBookList, id: ${id}`);
     return BookListModel.updateBookList(id, updateBookList);
   }
-//fix this
+
   static async replaceBookList(id, bookList) {
     if (bookList.title !== undefined && !bookList.title.trim()) {
       const error = new Error('The "title" field cannot be empty or just spaces.');

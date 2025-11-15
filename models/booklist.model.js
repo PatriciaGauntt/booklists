@@ -12,9 +12,21 @@ export class BookListModel {
     return collection;
   }
 
-  static getBookLists() {
-    logger.debug('BookListModel : getBookLists()');
-    return this.getCollection().find({}, {
+  static getBookLists(searchTerm) {
+    logger.debug(`BookListModel : getBookLists(${searchTerm})`);
+
+    const regexMatch = new RegExp(searchTerm, 'i');
+    const regexSearch = {
+      $or: [
+        { title: regexMatch },
+        { author_first_name: regexMatch },
+        { author_last_name: regexMatch },
+        { series_name: regexMatch },
+      ]
+    };
+
+    return this.getCollection().find(
+      searchTerm ? regexSearch : {}, {
       projection: { _id: 0 },
     });
   }
