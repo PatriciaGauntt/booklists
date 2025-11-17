@@ -21,18 +21,21 @@ export class BookListService {
     return BookListModel.getBookList(id);
   }
 
-  static createBookList(bookList) {
-    if (!bookList.title|| !bookList.title.trim()) {
-      const error = new Error('The "title" field cannot be empty or just spaces.');
-      error.statusCode = 400;
-      throw error;
+static createBookList(bookList) {
+  if (!bookList.title || !bookList.title.trim()) {
+    const error = new Error('The "title" field cannot be empty or just spaces.');
+    error.statusCode = 400;
+    throw error;
   }
-    const newBookList = {
-      ...bookList,
-      id: uuid().slice(0, 5),
-      tracking: {
-        uuid: uuid(),
-        createdDate: new Date().toISOString()
+
+  const fullUuid = uuid(); // generate UUID once
+
+  const newBookList = {
+    ...bookList,
+    id: fullUuid.slice(0, 5), // slice from the same UUID
+    tracking: {
+      uuid: fullUuid,         // keep full UUID here
+      createdDate: new Date().toISOString()
     }
   };
 

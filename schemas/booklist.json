@@ -37,6 +37,9 @@
     "bookcase": {
       "type": "number"
     },
+    "imagePath": {
+      "type": "string"
+    },
     "tracking": {
         "type": "object",
         "properties": {
