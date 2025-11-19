@@ -11,9 +11,9 @@ addFormats(ajv);
 const validate = ajv.compile(bookListSchema);
 
 export class BookListService {
-  static getBookLists(searchTerm) {
+  static getBookLists(searchTerm, skip, limit) {
     logger.debug('Service : getBookLists');
-    return BookListModel.getBookLists(searchTerm);
+    return BookListModel.getBookLists(searchTerm, skip, limit);
   }
 
   static getBookList(id) {

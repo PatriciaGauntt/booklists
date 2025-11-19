@@ -12,7 +12,7 @@ export class BookListModel {
     return collection;
   }
 
-  static getBookLists(searchTerm) {
+  static getBookLists(searchTerm, skip, limit) {
     logger.debug(`BookListModel : getBookLists(${searchTerm})`);
 
     const regexMatch = new RegExp(searchTerm, 'i');
@@ -28,7 +28,8 @@ export class BookListModel {
     return this.getCollection().find(
       searchTerm ? regexSearch : {}, {
       projection: { _id: 0 },
-    });
+    })
+    .skip(skip).limit(limit);
   }
 
   static getBookList(id) {
