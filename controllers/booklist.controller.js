@@ -3,7 +3,7 @@ import { logger } from '../lib/logger.js';
 import { BookListService } from '../services/booklist.service.js';
 
 export class BookListController {
-  static async getBookLists(req, res, next) {
+  static async getBookLists(req, res) {
     logger.debug('Controller : getBookLists');
 
     const searchTerm = req.query.search;
@@ -24,7 +24,7 @@ export class BookListController {
     res.status(200).json(result);
   }
 
-  static async createBookList(req, res, next) {
+  static async createBookList(req, res) {
     try {
       logger.debug('Controller : createBookList');
       const result = await BookListService.createBookList(req.body);
