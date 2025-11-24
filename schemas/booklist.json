@@ -54,6 +54,20 @@
                 "type": "string"
         }
         }
+    },
+        "comments": {
+        "type": "object",
+        "properties": {
+            "name": {
+            "type": "string"
+        },
+            "comment": {
+                "type": "string"
+        },
+            "commentDate": {
+                "type": "string"
+        }
+        }
     }
     }
 }
