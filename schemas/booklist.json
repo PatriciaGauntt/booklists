@@ -55,19 +55,15 @@
         }
         }
     },
-        "comments": {
+    "comments": {
+      "type": "array",
+      "items": {
         "type": "object",
-        "properties": {
-            "name": {
-            "type": "string"
-        },
-            "comment": {
-                "type": "string"
-        },
-            "commentDate": {
-                "type": "string"
-        }
-        }
+          "properties": {
+            "name": { "type": "string" },
+            "comment": { "type": "string" },
+            "commentDate": { "type": "string" }
     }
+  }
+}}
     }
-}

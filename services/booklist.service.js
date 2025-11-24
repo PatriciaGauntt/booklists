@@ -117,4 +117,37 @@ static createBookList(bookList) {
     logger.debug(`Service : deleteBookList, id: ${id}`);
     return BookListModel.deleteBookList(id);
   }
+  static async addComment(id, comment) {
+  const existingBookList = await BookListModel.getBookList(id);
+
+  if (!existingBookList) {
+    throw new Error(`Book with ${id} not found`);
+  }
+
+  // Ensure array exists
+  const comments = existingBookList.comments || [];
+
+  const newComment = {
+    ...comment,
+    commentDate: new Date().toISOString()
+  };
+
+  const updatedBookList = {
+    ...existingBookList,
+    comments: [...comments, newComment],
+    tracking: {
+      ...existingBookList.tracking,
+      updatedDate: new Date().toISOString()
+    }
+  };
+
+  // validate with AJV
+  const valid = validate(updatedBookList);
+  if (!valid) {
+    logger.warn('Validation error on adding comment!', validate.errors);
+    throw validate.errors;
+  }
+
+  return BookListModel.updateBookList(id, updatedBookList);
+}
 }

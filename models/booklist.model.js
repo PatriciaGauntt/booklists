@@ -84,4 +84,20 @@ export class BookListModel {
     const result = await collection.findOneAndDelete({ id });
     return result.value;
   }
+static async addComment(id, comment) {
+  const collection = this.getCollection();
+
+  const result = await collection.findOneAndUpdate(
+    { id },
+    {
+      $push: { comments: comment }  // Append comment to array
+    },
+    {
+      returnDocument: 'after',
+      projection: { _id: 0 }
+    }
+  );
+
+  return result.value;
+}
 }

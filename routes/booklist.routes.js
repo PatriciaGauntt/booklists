@@ -10,3 +10,4 @@ bookListRouter.post('/', BookListController.createBookList);
 bookListRouter.put('/:id', BookListController.replaceBookList);
 bookListRouter.patch('/:id', BookListController.updateBookList);
 bookListRouter.delete('/:id', BookListController.deleteBookList);
+bookListRouter.post('/:id/comments', BookListController.addComment);
