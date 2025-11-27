@@ -62,8 +62,13 @@
           "properties": {
             "name": { "type": "string" },
             "comment": { "type": "string" },
-            "commentDate": { "type": "string" }
+            "commentDate": { "type": "string" },
+            "commentId": { 
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+      }
     }
   }
-}}
-    }
+}

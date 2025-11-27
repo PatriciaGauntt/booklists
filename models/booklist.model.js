@@ -84,20 +84,30 @@ export class BookListModel {
     const result = await collection.findOneAndDelete({ id });
     return result.value;
   }
-static async addComment(id, comment) {
-  const collection = this.getCollection();
+  static async addComment(id, comment) {
+    const collection = this.getCollection();
 
-  const result = await collection.findOneAndUpdate(
-    { id },
-    {
-      $push: { comments: comment }  // Append comment to array
-    },
-    {
-      returnDocument: 'after',
-      projection: { _id: 0 }
-    }
-  );
+   const result = await collection.findOneAndUpdate(
+      { id },
+      {
+        $push: { comments: comment }  // Append comment to array
+      },
+      {
+        returnDocument: 'after',
+        projection: { _id: 0 }
+      }
+    );
 
-  return result.value;
-}
+    return result.value;
+  }
+  static async deleteComment(bookId, commentId) {
+    const collection = this.getCollection();
+
+    const result = await collection.updateOne(
+      { id: bookId },
+      { $pull: { comments: { commentId: commentId } } }
+    );
+
+    return result.modifiedCount > 0;  // true if something was deleted
+  }
 }

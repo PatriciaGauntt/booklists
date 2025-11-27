@@ -84,4 +84,20 @@ static async addComment(req, res, next) {
     next(err);
   }
 }
+static async deleteComment(req, res) {
+  try {
+    const { id, commentId } = req.params;
+
+    const result = await BookListService.deleteComment(id, commentId);
+
+    if (!result) {
+      return res.status(404).json({ message: 'Book or comment not found' });
+    }
+
+    res.json({ message: 'Comment deleted' });
+  } catch (err) {
+    console.error('Error deleting comment:', err);
+    res.status(500).json({ message: 'Server error deleting comment' });
+  }
+}
 }

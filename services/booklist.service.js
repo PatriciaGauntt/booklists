@@ -129,7 +129,8 @@ static createBookList(bookList) {
 
   const newComment = {
     ...comment,
-    commentDate: new Date().toISOString()
+    commentDate: new Date().toISOString(),
+    commentId: uuid(),
   };
 
   const updatedBookList = {
@@ -137,7 +138,7 @@ static createBookList(bookList) {
     comments: [...comments, newComment],
     tracking: {
       ...existingBookList.tracking,
-      updatedDate: new Date().toISOString()
+      updatedDate: new Date().toISOString(),
     }
   };
 
@@ -149,5 +150,9 @@ static createBookList(bookList) {
   }
 
   return BookListModel.updateBookList(id, updatedBookList);
+
+}
+  static async deleteComment(bookId, commentId) {
+  return await BookListModel.deleteComment(bookId, commentId);
 }
 }

@@ -11,3 +11,4 @@ bookListRouter.put('/:id', BookListController.replaceBookList);
 bookListRouter.patch('/:id', BookListController.updateBookList);
 bookListRouter.delete('/:id', BookListController.deleteBookList);
 bookListRouter.post('/:id/comments', BookListController.addComment);
+bookListRouter.delete('/:id/comments/:commentId', BookListController.deleteComment);
