@@ -1,14 +1,14 @@
-import AJV from 'ajv';
-import addFormats from 'ajv-formats';
-import { v4 as uuid } from 'uuid';
+import AJV from "ajv";
+import addFormats from "ajv-formats";
+import { v4 as uuid } from "uuid";
 
-import { logger } from '../lib/logger.js';
-import { BookListModel } from '../models/booklist.model.js';
-import bookListSchema from '../schemas/booklist.json' with { type: 'json' };
+import { logger } from "../lib/logger.js";
+import { BookListModel } from "../models/booklist.model.js";
+import bookListSchema from "../schemas/booklist.json" with { type: "json" };
 
 const ajv = new AJV();
 addFormats(ajv);
-const validate = ajv.compile(bookListSchema);
+const validate = (data) => ajv.validate(bookListSchema, data);
 
 export class BookListService {
   static getBookLists(searchTerm, skip, limit) {
@@ -21,23 +21,39 @@ export class BookListService {
     return BookListModel.getBookList(id);
   }
 
-static createBookList(bookList) {
-  if (!bookList.title || !bookList.title.trim()) {
-    const error = new Error('The "title" field cannot be empty or just spaces.');
-    error.statusCode = 400;
-    throw error;
-  }
+  // ⭐⭐⭐ NEW — REPLACED getComments SECTION ⭐⭐⭐
+  static async getComments(id) {
+    logger.debug(`Service : getComments, id: ${id}`);
 
-  const fullUuid = uuid(); // generate UUID once
+    const book = await BookListModel.getBookList(id);
 
-  const newBookList = {
-    ...bookList,
-    id: fullUuid.slice(0, 5), // slice from the same UUID
-    tracking: {
-      uuid: fullUuid,         // keep full UUID here
-      createdDate: new Date().toISOString()
+    if (!book) {
+      const err = new Error(`Book with ${id} not found`);
+      err.statusCode = 404;
+      throw err;
     }
-  };
+
+    return book.comments || [];
+  }
+  // ⭐⭐⭐ END OF REPLACED SECTION ⭐⭐⭐
+
+  static createBookList(bookList) {
+    if (!bookList.title || !bookList.title.trim()) {
+      const error = new Error('The "title" field cannot be empty or just spaces.');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const fullUuid = uuid();
+
+    const newBookList = {
+      ...bookList,
+      id: fullUuid.slice(0, 6),
+      tracking: {
+        uuid: fullUuid,
+        createdDate: new Date().toISOString()
+      }
+    };
 
     const valid = validate(newBookList);
     if (!valid) {
@@ -103,9 +119,9 @@ static createBookList(bookList) {
       }
     };
 
-      const valid = validate(replaceBookList);
-      if (!valid) {
-        logger.warn('Validation error on replacing a book!', validate.errors);
+    const valid = validate(replaceBookList);
+    if (!valid) {
+      logger.warn('Validation error on replacing a book!', validate.errors);
       throw validate.errors;
     }
 
@@ -117,42 +133,70 @@ static createBookList(bookList) {
     logger.debug(`Service : deleteBookList, id: ${id}`);
     return BookListModel.deleteBookList(id);
   }
+
   static async addComment(id, comment) {
-  const existingBookList = await BookListModel.getBookList(id);
+    const normalized = {};
 
-  if (!existingBookList) {
-    throw new Error(`Book with ${id} not found`);
-  }
-
-  // Ensure array exists
-  const comments = existingBookList.comments || [];
-
-  const newComment = {
-    ...comment,
-    commentDate: new Date().toISOString(),
-    commentId: uuid(),
-  };
-
-  const updatedBookList = {
-    ...existingBookList,
-    comments: [...comments, newComment],
-    tracking: {
-      ...existingBookList.tracking,
-      updatedDate: new Date().toISOString(),
+    if (!comment || typeof comment !== 'object') {
+      const err = new Error('Comment payload must be an object');
+      err.statusCode = 400;
+      throw err;
     }
-  };
 
-  // validate with AJV
-  const valid = validate(updatedBookList);
-  if (!valid) {
-    logger.warn('Validation error on adding comment!', validate.errors);
-    throw validate.errors;
+    if (comment.text !== undefined) normalized.text = comment.text;
+    else if (comment.comment !== undefined) normalized.text = comment.comment;
+    else if (comment.message !== undefined) normalized.text = comment.message;
+
+    if (comment.user !== undefined) normalized.user = comment.user;
+    else if (comment.name !== undefined) normalized.user = comment.name;
+    else if (comment.author !== undefined) normalized.user = comment.author;
+
+    if (!normalized.text || !String(normalized.text).trim()) {
+      const err = new Error('Comment text cannot be empty.');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    normalized.text = String(normalized.text).trim();
+    if (normalized.user) normalized.user = String(normalized.user).trim();
+
+    const existingBookList = await BookListModel.getBookList(id);
+    if (!existingBookList) {
+      const err = new Error(`Book with ${id} not found`);
+      err.statusCode = 404;
+      throw err;
+    }
+
+    const comments = existingBookList.comments || [];
+
+    const newComment = {
+      ...normalized,
+      commentDate: new Date().toISOString(),
+      commentId: uuid(),
+    };
+
+    const updatedBookList = {
+      ...existingBookList,
+      comments: [...comments, newComment],
+      tracking: {
+        ...existingBookList.tracking,
+        updatedDate: new Date().toISOString(),
+      },
+    };
+
+    const valid = validate(updatedBookList);
+    if (!valid) {
+      logger.warn('Validation error on adding comment!', validate.errors);
+      const err = new Error('Validation failed when adding comment');
+      err.statusCode = 400;
+      err.details = validate.errors;
+      throw err;
+    }
+
+    return BookListModel.updateBookList(id, updatedBookList);
   }
 
-  return BookListModel.updateBookList(id, updatedBookList);
-
-}
   static async deleteComment(bookId, commentId) {
-  return await BookListModel.deleteComment(bookId, commentId);
-}
+    return await BookListModel.deleteComment(bookId, commentId);
+  }
 }

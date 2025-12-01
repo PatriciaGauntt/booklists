@@ -1,7 +1,6 @@
 import { Constants } from '../lib/constants.js';
 import { logger } from '../lib/logger.js';
 import { BookListService } from '../services/booklist.service.js';
-//import { BookListModel } from '../models/booklist.model.js';
 
 export class BookListController {
   static async getBookLists(req, res) {

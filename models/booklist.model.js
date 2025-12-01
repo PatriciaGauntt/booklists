@@ -90,7 +90,7 @@ export class BookListModel {
    const result = await collection.findOneAndUpdate(
       { id },
       {
-        $push: { comments: comment }  // Append comment to array
+        $push: { comments: comment }
       },
       {
         returnDocument: 'after',
@@ -108,6 +108,6 @@ export class BookListModel {
       { $pull: { comments: { commentId: commentId } } }
     );
 
-    return result.modifiedCount > 0;  // true if something was deleted
+    return result.modifiedCount > 0;
   }
 }
