@@ -3,6 +3,10 @@ import { logger } from '../lib/logger.js';
 import { BookListService } from '../services/booklist.service.js';
 
 export class BookListController {
+
+  // ============================================================
+  // GET MANY
+  // ============================================================
   static async getBookLists(req, res) {
     logger.debug('Controller : getBookLists');
 
@@ -14,16 +18,21 @@ export class BookListController {
     res.status(200).json(await resultCursor.toArray());
   }
 
+  // ============================================================
+  // GET ONE
+  // ============================================================
   static async getBookList(req, res) {
     logger.debug(`Controller : getBookList, id: ${req.params.id}`);
     const result = await BookListService.getBookList(req.params.id);
     if (!result) {
-      res.sendStatus(404);
-      return;
+      return res.status(404).json({ error: "BookList not found" });
     }
     res.status(200).json(result);
   }
 
+  // ============================================================
+  // CREATE
+  // ============================================================
   static async createBookList(req, res) {
     try {
       logger.debug('Controller : createBookList');
@@ -37,6 +46,9 @@ export class BookListController {
     }
   }
 
+  // ============================================================
+  // PATCH — Partial Update
+  // ============================================================
   static async updateBookList(req, res) {
     try {
       logger.debug(`Controller: updateBookList, id: ${req.params.id}`);
@@ -50,6 +62,9 @@ export class BookListController {
     }
   }
 
+  // ============================================================
+  // PUT — Replace 
+  // ============================================================
   static async replaceBookList(req, res) {
     try {
       logger.debug(`Controller : replaceBookList, id: ${req.params.id}`);
@@ -64,15 +79,33 @@ export class BookListController {
     }
   }
 
-  static async deleteBookList(req, res) {
-    logger.debug(`Controller : deleteBookList, id: ${req.params.id}`);
-    const result = await BookListService.deleteBookList(req.params.id);
-    if (result) {
-      res.sendStatus(204);
-      return;
+// ============================================================
+// DELETE
+// ============================================================
+ 
+static async deleteBookList(req, res) {
+  logger.debug(`Controller : deleteBookList, id: ${req.params.id}`);
+
+  try {
+    const deleted = await BookListService.deleteBookList(req.params.id);
+
+    if (!deleted) {
+      return res.status(404).json({ error: "Book not found" });
     }
-    res.sendStatus(404);
+
+    // 200 response ensures Bruno/Postman see it correctly
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    return res.status(err.statusCode || 500).json({
+      error: err.message || "Unknown error deleting booklist"
+    });
   }
+}
+
+// ============================================================
+// ADD COMMENT
+// ============================================================
+  
 static async addComment(req, res, next) {
   try {
 
@@ -83,6 +116,11 @@ static async addComment(req, res, next) {
     next(err);
   }
 }
+
+// ============================================================
+// DELETE COMMENT
+// ============================================================
+ 
 static async deleteComment(req, res) {
   try {
     const { id, commentId } = req.params;

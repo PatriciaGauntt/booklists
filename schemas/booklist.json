@@ -37,6 +37,9 @@
     "bookcase": {
       "type": "number"
     },
+    "bookshelf": {
+      "type": "number"
+    },
     "imagePath": {
       "type": "string"
     },
