@@ -24,11 +24,9 @@ Enjoy exploring—and happy reading!
 
 Make sure you have the following installed:
 
-Node.js (v18+ recommended)
-
-npm (comes with Node)
-
-MongoDB running locally on mongodb://localhost:27017
+- Node.js (v18+ recommended)
+- npm (comes with Node)
+- MongoDB running locally on mongodb://localhost:27017
 
 ### Backend Setup (Express API)
 
