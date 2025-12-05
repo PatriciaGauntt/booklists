@@ -1,224 +1,2746 @@
-[
+[{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399a7"
+  },
+  "id": "abc123",
+  "title": "Dungeon Crawler Carl",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2020,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1,
+  "imagePath": "/images/dungeonCrawlerCarl.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399a8"
+  },
+  "id": "abc124",
+  "title": "Carl's Doomsday Scenario",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2021,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1,
+  "imagePath": "/images/carlsDoomsday.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399a9"
+  },
+  "id": "abc125",
+  "title": "The Dungeon Anarchist's Cookbook",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2021,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399aa"
+  },
+  "id": "abc126",
+  "title": "The Gate of the Feral Gods",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2021,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ab"
+  },
+  "id": "abc127",
+  "title": "The Butcher's Masquerade",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2022,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ac"
+  },
+  "id": "abc128",
+  "title": "The Eye of the Bedlam Bride",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2023,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ad"
+  },
+  "id": "abc129",
+  "title": "This Inevitable Ruin",
+  "author_first_name": "Matt",
+  "author_last_name": "Dinniman",
+  "publication_year": 2024,
+  "series_name": "The Dungeon Crawler Carl",
+  "location": "Office",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ae"
+  },
+  "id": "abc130",
+  "title": "Good Dog Carl",
+  "author_first_name": "Alexandra ",
+  "author_last_name": "Day",
+  "publication_year": 1985,
+  "series_name": "Good Dog Carl Series",
+  "location": "Office",
+  "bookcase": 2,
+  "bookshelf": 1,
+  "imagePath": "/images/goodDogCarl.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399af"
+  },
+  "id": "abc131",
+  "title": "Divergent",
+  "author_first_name": "Veronica",
+  "author_last_name": "Roth",
+  "publication_year": 2011,
+  "series_name": "The Divergent Series",
+  "location": "Office",
+  "bookcase": 1,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b0"
+  },
+  "id": "abc132",
+  "title": "Artemis Fowl",
+  "author_first_name": "Eoin",
+  "author_last_name": "Colfer",
+  "publication_year": 2001,
+  "series_name": "The Fowl Adventures",
+  "location": "Office",
+  "bookcase": 1,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b1"
+  },
+  "id": "abc133",
+  "title": "Homeland ",
+  "author_first_name": "R.A.",
+  "author_last_name": "Salvatore",
+  "publication_year": 1990,
+  "series_name": "The Dark Elf Trilogy",
+  "location": "Living Room",
+  "bookcase": 2,
+  "imagePath": "/images/homeland.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b2"
+  },
+  "id": "abc134",
+  "title": "Exile",
+  "author_first_name": "R.A.",
+  "author_last_name": "Salvatore",
+  "publication_year": 1990,
+  "series_name": "The Dark Elf Trilogy",
+  "location": "Living Room",
+  "bookcase": 2,
+  "imagePath": "/images/exile.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b3"
+  },
+  "id": "abc135",
+  "title": "Sojourn",
+  "author_first_name": "R.A.",
+  "author_last_name": "Salvatore",
+  "publication_year": 1991,
+  "series_name": "The Dark Elf Trilogy",
+  "location": "Living Room",
+  "bookcase": 2,
+  "imagePath": "/images/sojourn.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b4"
+  },
+  "id": "abc136",
+  "title": "Charlotte's Web",
+  "author_first_name": "E.B.",
+  "author_last_name": "White",
+  "publication_year": 1952,
+  "location": "School Room",
+  "bookcase": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b5"
+  },
+  "id": "abc137",
+  "title": "The Secret Garden",
+  "author_first_name": "Frances",
+  "author_last_name": "Burnett",
+  "publication_year": 1911,
+  "location": "School Room",
+  "bookcase": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b6"
+  },
+  "id": "abc138",
+  "title": "Tales from King Arthur",
+  "author_first_name": "Andrew ",
+  "author_last_name": "Lang",
+  "publication_year": 1993,
+  "location": "School Room",
+  "bookcase": 1,
+  "imagePath": "/images/kingArthur.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b7"
+  },
+  "id": "abc139",
+  "title": "Alice's Adventures in Wonderland",
+  "author_first_name": "Lewis ",
+  "author_last_name": "Carroll",
+  "publication_year": 2010,
+  "location": "School Room",
+  "bookcase": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b8"
+  },
+  "id": "abc141",
+  "title": "The Only Good Indians",
+  "author_first_name": "Stephen",
+  "author_last_name": "Jones",
+  "publication_year": 2020,
+  "location": "School Room",
+  "bookcase": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399b9"
+  },
+  "id": "abc142",
+  "title": "National Audubon Society Field Guide to the Night Sky",
+  "author_first_name": "Mark",
+  "author_last_name": "Chartrand",
+  "publication_year": 2022,
+  "location": "School Room",
+  "bookcase": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ba"
+  },
+  "id": "abc143",
+  "title": "Tokyo Ghoul: re 1",
+  "author_first_name": "Sui",
+  "author_last_name": "Ishida",
+  "publication_year": 2014,
+  "series_name": "Tokyo Ghoul: re",
+  "location": "School Room",
+  "bookcase": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399bb"
+  },
+  "id": "abc144",
+  "title": "Tokyo Ghoul: re 2",
+  "author_first_name": "Sui",
+  "author_last_name": "Ishida",
+  "publication_year": 2014,
+  "series_name": "Tokyo Ghoul: re",
+  "location": "School Room",
+  "bookcase": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399bc"
+  },
+  "id": "abc145",
+  "title": "Tokyo Ghoul: re 3",
+  "author_first_name": "Sui",
+  "author_last_name": "Ishida",
+  "publication_year": 2014,
+  "series_name": "Tokyo Ghoul: re",
+  "location": "School Room",
+  "bookcase": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399bd"
+  },
+  "id": "abc146",
+  "title": "Death on the Nile",
+  "author_first_name": "Agatha",
+  "author_last_name": "Christie",
+  "publication_year": 1937,
+  "location": "School Room",
+  "bookcase": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399bf"
+  },
+  "id": "abc148",
+  "title": "New Moon",
+  "author_first_name": "Stephenie",
+  "author_last_name": "Meyer",
+  "publication_year": 2006,
+  "series_name": "Twight Saga",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 4,
+  "imagePath": "/images/newmoon.jpg",
+  "comments": [
     {
-      "id": "abc123",
-      "title": "Dungeon Crawler Carl",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2020,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc124",
-      "title": "Carl's Doomsday Scenario",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2021,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc125",
-      "title": "The Dungeon Anarchist's Cookbook",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2021,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc126",
-      "title": "The Gate of the Feral Gods",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2021,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc127",
-      "title": "The Butcher's Masquerade",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2022,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc128",
-      "title": "The Eye of the Bedlam Bride",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2023,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc129",
-      "title": "This Inevitable Ruin",
-      "author_first_name": "Matt",
-      "author_last_name": "Dinniman",
-      "publication_date": 2024,
-      "series_name": "The Dungeon Crawler Carl",
-      "location": "Office",
-      "bookcase": 3
-    },
-    {
-      "id": "abc130",
-      "title": "Good Dog Carl",
-      "author_first_name": "Alexandra ",
-      "author_last_name": "Day",
-      "publication_date": 1985,
-      "series_name": "Good Dog Carl Series",
-      "location": "Office",
-      "bookcase": 2
-    },
-    {
-      "id": "abc131",
-      "title": "Divergent",
-      "author_first_name": "Veronica",
-      "author_last_name": "Roth",
-      "publication_date": 2011,
-      "series_name": "The Divergent Series",
-      "location": "Office",
-      "bookcase": 1
-    },
-    {
-      "id": "abc132",
-      "title": "Artemis Fowl",
-      "author_first_name": "Eoin",
-      "author_last_name": "Colfer",
-      "publication_date": 2001,
-      "series_name": "The Fowl Adventures",
-      "location": "Office",
-      "bookcase": 1
-    },
-    {
-      "id": "abc133",
-      "title": "Homeland ",
-      "author_first_name": "R.A.",
-      "author_last_name": "Salvatore",
-      "publication_date": 1990,
-      "series_name": "The Dark Elf Trilogy",
-      "location": "Living Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc134",
-      "title": "Exile",
-      "author_first_name": "R.A.",
-      "author_last_name": "Salvatore",
-      "publication_date": 1990,
-      "series_name": "The Dark Elf Trilogy",
-      "location": "Living Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc135",
-      "title": "Sojourn",
-      "author_first_name": "R.A.",
-      "author_last_name": "Salvatore",
-      "publication_date": 1991,
-      "series_name": "The Dark Elf Trilogy",
-      "location": "Living Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc136",
-      "title": "Charlotte's Web",
-      "author_first_name": "E.B.",
-      "author_last_name": "White",
-      "publication_date": 1952,
-      "location": "School Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc137",
-      "title": "The Secret Garden",
-      "author_first_name": "Frances",
-      "author_last_name": "Burnett",
-      "publication_date": 1911,
-      "location": "School Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc138",
-      "title": "Tales from King Arthur",
-      "author_first_name": "Andrew ",
-      "author_last_name": "Lang",
-      "publication_date": 1993,
-      "location": "School Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc139",
-      "title": "Alice's Adventures in Wonderland",
-      "author_first_name": "Lewis ",
-      "author_last_name": "Carroll",
-      "publication_date": 2010,
-      "location": "School Room",
-      "bookcase": 2
-    },
-    {
-      "id": "abc140",
-      "title": "Death on the Nile",
-      "author_first_name": "Agatha Christie",
-      "publication_date": 1937,
-      "location": "School Room",
-      "bookcase": 3
-    },
-    {
-      "id": "abc141",
-      "title": "The Only Good Indians",
-      "author_first_name": "Stephen",
-      "author_last_name": "Jones",
-      "publication_date": 2020,
-      "location": "School Room",
-      "bookcase": 3
-    },
-    {
-      "id": "abc142",
-      "title": "National Audubon Society Field Guide to the Night Sky",
-      "author_first_name": "Mark",
-      "author_last_name": "Chartrand",
-      "publication_date": 2022,
-      "location": "School Room",
-      "bookcase": 4
-    },
-    {
-      "id": "abc143",
-      "title": "Tokyo Ghoul: re 1",
-      "author_first_name": "Sui",
-      "author_last_name": "Ishida",
-      "publication_date": 2014,
-      "series_name": "Tokyo Ghoul: re",
-      "location": "School Room",
-      "bookcase": 5
-    },
-    {
-      "id": "abc144",
-      "title": "Tokyo Ghoul: re 2",
-      "author_first_name": "Sui",
-      "author_last_name": "Ishida",
-      "publication_date": 2014,
-      "series_name": "Tokyo Ghoul: re",
-      "location": "School Room",
-      "bookcase": 5
-    },
-    {
-      "id": "abc145",
-      "title": "Tokyo Ghoul: re 3",
-      "author_first_name": "Sui",
-      "author_last_name": "Ishida",
-      "publication_date": 2014,
-      "series_name": "Tokyo Ghoul: re",
-      "location": "School Room",
-      "bookcase": 5
+      "comment": "Currently in Office",
+      "name": "Patricia",
+      "commentDate": "2025-12-04T00:00:45.076Z",
+      "commentId": "edcebbcf-6c5d-489a-ae63-a787759137f4"
     }
-]
+  ],
+  "tracking": {
+    "updatedDate": "2025-12-04T00:00:45.076Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c0"
+  },
+  "id": "abc149",
+  "title": "Gulliver's Travels",
+  "author_first_name": "Jonathan",
+  "author_last_name": "Swift",
+  "publication_year": 1727,
+  "location": "Great Room",
+  "bookcase": 1,
+  "bookshelf": 1,
+  "imagePath": "/images/gulliversTravels.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c1"
+  },
+  "id": "abc150",
+  "title": "Arsene Lupin",
+  "author_first_name": "Maurice",
+  "author_last_name": "LeBlanc",
+  "publication_year": 2002,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 1,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c2"
+  },
+  "id": "abc151",
+  "title": "Beginnings: The Story of Origins - Mankind, Life, the Earth, the Universe",
+  "author_first_name": "Isaac",
+  "author_last_name": "Asimov",
+  "publication_year": 1987,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 1,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c3"
+  },
+  "id": "abc152",
+  "title": "The Rise of Tiamat",
+  "author_first_name": "Steve",
+  "author_last_name": "Winter",
+  "publication_year": 2014,
+  "series_name": "Tyranny of Dragons",
+  "location": "Great Room",
+  "bookcase": 1,
+  "bookshelf": 4,
+  "imagePath": "/images/riseOfTiamat.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c4"
+  },
+  "id": "abc153",
+  "title": "The Tales of Beedle the Bard",
+  "author_first_name": "J.K.",
+  "author_last_name": "Rowling",
+  "publication_year": "2007",
+  "series_name": "The World of Harry Potter",
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 0,
+  "imagePath": "/images/talesBeedlBard.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c5"
+  },
+  "id": "abc154",
+  "title": "Harry Potter: The Wand Collection",
+  "author_first_name": "Monique",
+  "author_last_name": "Peterson",
+  "publication_year": 2017,
+  "series_name": "The World of Harry Potter",
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c6"
+  },
+  "id": "abc155",
+  "title": "A Witness Tree",
+  "author_first_name": "Robert ",
+  "author_last_name": "Frost",
+  "publication_year": 1943,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c7"
+  },
+  "id": "abc156",
+  "title": "Alice's Adventures in Wonderland & Through the Looking Glass",
+  "author_first_name": "Lewis ",
+  "author_last_name": "Carroll",
+  "publication_year": 2012,
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c8"
+  },
+  "id": "abc157",
+  "title": "What you are looking for is in the library",
+  "author_first_name": "Michiko",
+  "author_last_name": "Aoyama",
+  "publication_year": 2020,
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399c9"
+  },
+  "id": "abc158",
+  "title": "The Complete Cthulhu Mythos Tales",
+  "author_first_name": "H.P.",
+  "author_last_name": "Lovecraft",
+  "publication_year": 2013,
+  "location": "Great Room",
+  "bookcase": 2,
+  "bookshelf": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ca"
+  },
+  "id": "abc159",
+  "title": "Player Piano",
+  "author_first_name": "Kurt",
+  "author_last_name": "Vonnegut, Jr.",
+  "publication_year": 1952,
+  "location": "Great Room",
+  "bookcase": 3,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399cb"
+  },
+  "id": "abc160",
+  "title": "Boyfriend's Refrainbow",
+  "author_first_name": "Emma",
+  "author_last_name": "Hambly",
+  "publication_year": 2025,
+  "series_name": "Boyfriends",
+  "location": "Great Room",
+  "bookcase": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399cc"
+  },
+  "id": "abc161",
+  "title": "Rose Red Tyrant",
+  "author_first_name": "Jun",
+  "author_last_name": "Hioki",
+  "publication_year": 2024,
+  "series_name": "Disney Twisted-Wonderland",
+  "location": "Great Room",
+  "bookcase": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399cd"
+  },
+  "id": "abc162",
+  "title": "Someone You Can Build a Nest In",
+  "author_first_name": "John",
+  "author_last_name": "Wiswell",
+  "publication_year": 2024,
+  "location": "Great Room",
+  "bookcase": 0,
+  "imagePath": "/images/someoneBuildNest.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ce"
+  },
+  "id": "abc163",
+  "title": "Lore Olympus Volume Nine",
+  "author_first_name": "Rachel",
+  "author_last_name": "Smythe",
+  "publication_year": 2025,
+  "series_name": "Lore Olympus",
+  "location": "Great Room",
+  "bookcase": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399cf"
+  },
+  "id": "abc164",
+  "title": "Dungeoneer's Survival Guide",
+  "author_first_name": "Douglas",
+  "author_last_name": "Niles",
+  "publication_year": 1986,
+  "series_name": "Official Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d0"
+  },
+  "id": "abc165",
+  "title": "Wilderness Survival Guide",
+  "author_first_name": "Kim",
+  "author_last_name": "Mohan",
+  "publication_year": 1986,
+  "series_name": "Official Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d1"
+  },
+  "id": "abc166",
+  "title": "Oriental Adventures",
+  "author_first_name": "Gary Gygax",
+  "author_last_name": "Gygax",
+  "publication_year": 1985,
+  "series_name": "Official Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d2"
+  },
+  "id": "abc167",
+  "title": "Player's Handbook",
+  "author_first_name": "Steve",
+  "author_last_name": "Winter",
+  "publication_year": 1989,
+  "series_name": "Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d3"
+  },
+  "id": "abc168",
+  "title": "Player's Handbook",
+  "author_first_name": "Steve",
+  "author_last_name": "Winter",
+  "publication_year": 1989,
+  "series_name": "Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d4"
+  },
+  "id": "abc169",
+  "title": "Dungeon Master Guide",
+  "author_first_name": "Steve",
+  "author_last_name": "Winter",
+  "publication_year": 1989,
+  "series_name": "Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d5"
+  },
+  "id": "abc170",
+  "title": "Priest's Spell Compendium: Volume One",
+  "author_first_name": "Keith",
+  "author_last_name": "Stohm",
+  "publication_year": 1999,
+  "series_name": "Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d6"
+  },
+  "id": "abc171",
+  "title": "Encyclopedia Magica",
+  "author_first_name": "Steve",
+  "author_last_name": "Winter",
+  "publication_year": 1995,
+  "series_name": "Advanced Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d7"
+  },
+  "id": "abc172",
+  "title": "Fang & Fury: a guidebook to vampires",
+  "author_first_name": "Jim",
+  "author_last_name": "Bishop",
+  "publication_year": 2003,
+  "series_name": "Races of Renown",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d8"
+  },
+  "id": "abc173",
+  "title": "d20 Modern Roleplaying Game: Core Rulebook",
+  "author_first_name": "Bill",
+  "author_last_name": "Slavicsek",
+  "publication_year": 2002,
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399d9"
+  },
+  "id": "abc174",
+  "title": "The World of Ice & Fire: The Untold History of Westeros and The Game of Thrones",
+  "author_first_name": "George R.R.",
+  "author_last_name": "Martin",
+  "publication_year": 2014,
+  "series_name": "The Game of Thrones",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399da"
+  },
+  "id": "abc175",
+  "title": "The Art of the Mass Effect Universe",
+  "author_first_name": "Casey",
+  "author_last_name": "Hudson",
+  "publication_year": 2012,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 4,
+  "bookshelf": 5
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399db"
+  },
+  "id": "abc176",
+  "title": "Dungeon Master Guide II",
+  "author_first_name": "Jesse",
+  "author_last_name": "Decker",
+  "publication_year": 2005,
+  "series_name": "Dungeons & Dragons Supplement",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399dc"
+  },
+  "id": "abc177",
+  "title": "Dungeon Master Guide: Core Rulebook II v.3.5",
+  "author_first_name": "Monte",
+  "author_last_name": "Cook",
+  "publication_year": 2003,
+  "series_name": "Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399dd"
+  },
+  "id": "abc178",
+  "title": "Monster Manual III",
+  "author_first_name": "Rich",
+  "author_last_name": "Burlew",
+  "publication_year": 2004,
+  "series_name": "Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399de"
+  },
+  "id": "abc179",
+  "title": "Monster Manual II",
+  "author_first_name": "Ed",
+  "author_last_name": "Bonney",
+  "publication_year": 2002,
+  "series_name": "Dungeons & Dragons",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399df"
+  },
+  "id": "abc180",
+  "title": "The Emperor Dalek's New Clothes",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2016,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e0"
+  },
+  "id": "abc181",
+  "title": "Snow White and the Seven Keys to Doomsday",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e1"
+  },
+  "id": "abc182",
+  "title": "Little Rose Riding Hood",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e2"
+  },
+  "id": "abc183",
+  "title": "Cinderella and the Magic Box",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e3"
+  },
+  "id": "abc184",
+  "title": "The Gingerbread Trap",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e4"
+  },
+  "id": "abc185",
+  "title": "Helana and the Beast",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e5"
+  },
+  "id": "abc186",
+  "title": "Andiba and the Four Slitheen",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e6"
+  },
+  "id": "abc187",
+  "title": "Sirgwain and the Green Knight",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e7"
+  },
+  "id": "abc188",
+  "title": "The Garden of Statues",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e8"
+  },
+  "id": "abc189",
+  "title": "Frozen Beauty",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399e9"
+  },
+  "id": "abc190",
+  "title": "The Three Little Sontarans",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ea"
+  },
+  "id": "abc191",
+  "title": "The Three Brothers Gruff",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399eb"
+  },
+  "id": "abc192",
+  "title": "The Grief Collector",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ec"
+  },
+  "id": "abc193",
+  "title": "The Scruffy Piper",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ed"
+  },
+  "id": "abc194",
+  "title": "The Twins in the Wood",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ee"
+  },
+  "id": "abc195",
+  "title": "Jak and the Wormhole",
+  "author_first_name": "Justin",
+  "author_last_name": "Richards",
+  "publication_year": 2015,
+  "series_name": "BBC Doctor Who: Time Lord Fairy Tales",
+  "location": "Great Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "imagePath": "/images/timeLordFairyTales.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ef"
+  },
+  "id": "abc196",
+  "title": "Ashes Without Number",
+  "author_first_name": "Kevin",
+  "author_last_name": "Crawford",
+  "publication_year": 2025,
+  "series_name": "After the End",
+  "location": "Great Room",
+  "bookcase": 8,
+  "bookshelf": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f0"
+  },
+  "id": "abc197",
+  "title": "The Second Age",
+  "author_first_name": "David ",
+  "author_last_name": "Day",
+  "publication_year": 2023,
+  "series_name": "The Illustrated World of Tolkien",
+  "bookcase": 8,
+  "bookshelf": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f1"
+  },
+  "id": "abc198",
+  "title": "Ruins of the Lost Realm",
+  "author_first_name": "Gareth",
+  "author_last_name": "Hanrahan",
+  "publication_year": 2022,
+  "series_name": "The One Ring",
+  "location": "Great Room",
+  "bookcase": 8,
+  "bookshelf": 0,
+  "imagePath": "/images/ruinsLostRealm.jpg"
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f2"
+  },
+  "id": "abc199",
+  "title": "Realms of the Three Rings",
+  "author_first_name": "Gabriele",
+  "author_last_name": "Quaglia",
+  "publication_year": 2025,
+  "series_name": "The One Ring",
+  "location": "Great Room",
+  "bookcase": 8,
+  "bookshelf": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f3"
+  },
+  "id": "abc200",
+  "title": "The Norse Myths: A Guide to the Gods and Heroes",
+  "author_first_name": "Carolyne",
+  "author_last_name": "Larrington",
+  "publication_year": 2017,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 9,
+  "bookshelf": 0,
+  "imagePath": ""
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f4"
+  },
+  "id": "abc201",
+  "title": "The Sagas of Icelanders",
+  "author_first_name": "Short ",
+  "author_last_name": "Stories",
+  "publication_year": "1997",
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 9,
+  "bookshelf": 0
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f5"
+  },
+  "id": "abc202",
+  "title": "Percy Jackson & The Olympians: The Ultimate Guide",
+  "author_first_name": "Mary-Jane",
+  "author_last_name": "Knight",
+  "publication_year": 2009,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 1,
+  "imagePath": ""
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f6"
+  },
+  "id": "abc203",
+  "title": "The Kane Chronicles: Survival Guide",
+  "author_first_name": "Mary-Jane",
+  "author_last_name": "Knight",
+  "publication_year": "2010",
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f7"
+  },
+  "id": "abc204",
+  "title": "Who Could That Be at This Hour?",
+  "author_first_name": "Lemony",
+  "author_last_name": "Snicket",
+  "publication_year": 2012,
+  "series_name": "All the Wrong Questions",
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 1
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f8"
+  },
+  "id": "abc205",
+  "title": "The Beet Fields",
+  "author_first_name": "Gary",
+  "author_last_name": "Paulsen",
+  "publication_year": 2000,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399f9"
+  },
+  "id": "abc206",
+  "title": "Holes",
+  "author_first_name": "Louis",
+  "author_last_name": "Sachar",
+  "publication_year": 1998,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399fa"
+  },
+  "id": "abc207",
+  "title": "The Outsiders",
+  "author_first_name": "S.E.",
+  "author_last_name": "Hinton",
+  "publication_year": 1967,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 2
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399fb"
+  },
+  "id": "abc208",
+  "title": "Lemony Snicket: The Unauthorized Autobiography",
+  "author_first_name": "Lemony",
+  "author_last_name": "Snicket",
+  "publication_year": 2002,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399fc"
+  },
+  "id": "abc209",
+  "title": "The BFG",
+  "author_first_name": "Roald",
+  "author_last_name": "Dahl",
+  "publication_year": 1982,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 3
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399fd"
+  },
+  "id": "abc210",
+  "title": "Get a Grip on Evolution",
+  "author_first_name": "David ",
+  "author_last_name": "Burnie",
+  "publication_year": 1999,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399fe"
+  },
+  "id": "abc211",
+  "title": "Persephone the Phony",
+  "author_first_name": "Joan",
+  "author_last_name": "Holub",
+  "publication_year": 2010,
+  "series_name": "Goddess Girls",
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c192399ff"
+  },
+  "id": "abc212",
+  "title": "The Absolutely True Diary of a Part-Time Indian",
+  "author_first_name": "Sherman",
+  "author_last_name": "Alexie",
+  "publication_year": 1966,
+  "series_name": "",
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 4
+},
+{
+  "_id": {
+    "$oid": "692f8a7f43239f1c19239a00"
+  },
+  "id": "abc213",
+  "title": "The Outsiders",
+  "author_first_name": "S.E.",
+  "author_last_name": "Hinton",
+  "publication_year": 1967,
+  "location": "Great Room",
+  "bookcase": 10,
+  "bookshelf": 4,
+  "imagePath": "/images/outsidersPlat.jpg"
+},
+{
+  "_id": {
+    "$oid": "6930c712ac19ef732d567e84"
+  },
+  "title": "Webster's Elementary Dictionary: A Dictionary for Boys and Girls",
+  "author_first_name": "NA",
+  "author_last_name": "NA",
+  "publication_year": 1962,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 1,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "f4a8fc",
+  "tracking": {
+    "uuid": "f4a8fcd6-cbf2-43be-a898-6fc868cbecb9",
+    "createdDate": "2025-12-03T23:26:10.453Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6930c765ac19ef732d567e85"
+  },
+  "title": "The Modern Cafe",
+  "author_first_name": "Francisco",
+  "author_last_name": "Migoya",
+  "publication_year": 2010,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 4,
+  "imagePath": "",
+  "id": "e4db1a",
+  "tracking": {
+    "uuid": "e4db1afd-d658-4d9f-a85e-7690fa1d2365",
+    "createdDate": "2025-12-03T23:27:33.693Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6930c790ac19ef732d567e86"
+  },
+  "title": "How Baking Works",
+  "author_first_name": "Paula",
+  "author_last_name": "Figoni",
+  "publication_year": 2011,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 4,
+  "imagePath": "",
+  "id": "a5262a",
+  "tracking": {
+    "uuid": "a5262ad1-45ac-4233-80d3-d3dec4acec76",
+    "createdDate": "2025-12-03T23:28:16.612Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6930c840ac19ef732d567e87"
+  },
+  "title": "Pati's Mexican Table",
+  "author_first_name": "Pati",
+  "author_last_name": "Jinich",
+  "publication_year": 2013,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "7ba1b8",
+  "tracking": {
+    "uuid": "7ba1b84c-8604-4770-a07c-a626cc99db2c",
+    "createdDate": "2025-12-03T23:31:12.960Z",
+    "updatedDate": "2025-12-03T23:33:44.027Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6930c89dac19ef732d567e88"
+  },
+  "title": "The Best of Mr. Food: Home Cookin' in a Hurry",
+  "author_first_name": "Art",
+  "author_last_name": "Ginsburg",
+  "publication_year": 2003,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "d1c4be",
+  "tracking": {
+    "uuid": "d1c4be4b-2294-4b21-9c59-4106b4f2ec41",
+    "createdDate": "2025-12-03T23:32:45.312Z",
+    "updatedDate": "2025-12-03T23:34:35.275Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6930c95dac19ef732d567e89"
+  },
+  "title": "Taste of Home Annual Recipes 1998",
+  "author_first_name": "NA",
+  "author_last_name": "NA",
+  "publication_year": 1997,
+  "series_name": "",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "d76804",
+  "tracking": {
+    "uuid": "d768043d-d09d-4efc-9472-6b4ac163339b",
+    "createdDate": "2025-12-03T23:35:57.991Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931e7a1f309704f7c3517b9"
+  },
+  "title": "Breaking Dawn",
+  "author_first_name": "Stephenie",
+  "author_last_name": "Meyer",
+  "publication_year": 2008,
+  "series_name": "Twilight Saga",
+  "location": "Loft",
+  "bookcase": 2,
+  "bookshelf": 4,
+  "imagePath": "",
+  "id": "4135ab",
+  "tracking": {
+    "uuid": "4135ab33-15a5-4e4b-94ed-a34988777e3c",
+    "createdDate": "2025-12-04T19:57:21.869Z",
+    "updatedDate": "2025-12-04T21:40:56.650Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931ec00f309704f7c3517ba"
+  },
+  "title": "Twilight",
+  "author_first_name": "Stephenie",
+  "author_last_name": "Meyer",
+  "publication_year": 2006,
+  "series_name": "Twilight Saga",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 0,
+  "imagePath": "/images/twilght.jpg",
+  "id": "460985",
+  "tracking": {
+    "uuid": "460985ed-b5bc-4574-84f2-a2b88f9b772e",
+    "createdDate": "2025-12-04T20:16:00.809Z",
+    "updatedDate": "2025-12-04T20:24:18.539Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931f402f309704f7c3517bb"
+  },
+  "title": "Eclipse",
+  "author_first_name": "Stephenie",
+  "author_last_name": "Meyer",
+  "publication_year": 2007,
+  "series_name": "Twilight Saga",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 0,
+  "imagePath": "/images/twilght.jpg",
+  "id": "19e663",
+  "tracking": {
+    "uuid": "19e66337-1e50-4660-9d5f-182dc751b4cf",
+    "createdDate": "2025-12-04T20:50:10.243Z",
+    "updatedDate": "2025-12-04T21:13:52.655Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931f5c7f309704f7c3517bc"
+  },
+  "title": "Iron Flame",
+  "author_first_name": "Rebecca",
+  "author_last_name": "Yarros",
+  "publication_year": 2023,
+  "series_name": "The Empyrean Series",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "703428",
+  "tracking": {
+    "uuid": "7034286c-b0f7-4f5d-a8dc-8c5b33cfa43a",
+    "createdDate": "2025-12-04T20:57:43.952Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931f602f309704f7c3517bd"
+  },
+  "title": "Fourth Wing",
+  "author_first_name": "Rebecca",
+  "author_last_name": "Yarros",
+  "publication_year": 2023,
+  "series_name": "The Empyrean Series",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "984e14",
+  "tracking": {
+    "uuid": "984e1490-c760-4696-ac88-234fd612793f",
+    "createdDate": "2025-12-04T20:58:42.781Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931f79ff309704f7c3517be"
+  },
+  "title": "Wayward Son",
+  "author_first_name": "Rainbow",
+  "author_last_name": "Rowell",
+  "publication_year": 2019,
+  "series_name": "The Simon Snow Trilogy",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "af5db2",
+  "tracking": {
+    "uuid": "af5db216-0167-424d-bb8b-049a45e90ae9",
+    "createdDate": "2025-12-04T21:05:35.209Z",
+    "updatedDate": "2025-12-04T21:57:44.018Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931f84ff309704f7c3517bf"
+  },
+  "title": "Wayward Son",
+  "author_first_name": "Rainbow",
+  "author_last_name": "Rowell",
+  "publication_year": 2019,
+  "series_name": "The Simon Snow Trilogy",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "5af753",
+  "tracking": {
+    "uuid": "5af75381-8278-4244-bce4-1af7ed030b48",
+    "createdDate": "2025-12-04T21:08:31.352Z",
+    "updatedDate": "2025-12-04T21:19:13.930Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931fb7df309704f7c3517c0"
+  },
+  "title": "Any Way the Wind Blows",
+  "author_first_name": "Rainbow",
+  "author_last_name": "Rowell",
+  "publication_year": 2021,
+  "series_name": "The Simon Snow Trilogy",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "48f2a0",
+  "tracking": {
+    "uuid": "48f2a0be-3600-49ee-868e-3aa68478e102",
+    "createdDate": "2025-12-04T21:22:05.695Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931fe84f309704f7c3517c1"
+  },
+  "title": "How the King of Elfhame Learned to Hate Stories",
+  "author_first_name": "Holly",
+  "author_last_name": "Black",
+  "publication_year": 2020,
+  "series_name": "Elfhame Series",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 3,
+  "id": "03e9d4",
+  "tracking": {
+    "uuid": "03e9d4a3-11e9-48ab-9b5e-cb98b036f01e",
+    "createdDate": "2025-12-04T21:35:00.368Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931ff5af309704f7c3517c2"
+  },
+  "title": "The Red Scrolls of Magic",
+  "author_first_name": "Cassandra",
+  "author_last_name": "Clare",
+  "publication_year": 2019,
+  "series_name": "The Eldest Curses",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 3,
+  "id": "5e32d3",
+  "tracking": {
+    "uuid": "5e32d357-875b-4e66-b4e9-f815fcbe30b7",
+    "createdDate": "2025-12-04T21:38:34.155Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6931ff9ff309704f7c3517c3"
+  },
+  "title": "Destined",
+  "author_first_name": "P.C.",
+  "author_last_name": "Cast",
+  "publication_year": 2011,
+  "series_name": "House of Night",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 3,
+  "id": "c55591",
+  "tracking": {
+    "uuid": "c55591bd-9cde-4562-bfc8-55c95d9a05fa",
+    "createdDate": "2025-12-04T21:39:43.510Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932057ef309704f7c3517c4"
+  },
+  "title": "Muse of Nightmares",
+  "author_first_name": "Laini",
+  "author_last_name": "Taylor",
+  "publication_year": 2018,
+  "series_name": "Strange the Dreamer Series",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "3eb1dd",
+  "tracking": {
+    "uuid": "3eb1ddfe-2f8e-4366-9c5e-c9990c32bde5",
+    "createdDate": "2025-12-04T22:04:46.141Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320667f309704f7c3517c5"
+  },
+  "title": "King of Scars",
+  "author_first_name": "Leigh",
+  "author_last_name": "Bardugo",
+  "publication_year": 2019,
+  "series_name": "King of Scars",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 1,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "549a34",
+  "tracking": {
+    "uuid": "549a3479-9e1e-4954-a7f3-2f0099d55f6d",
+    "createdDate": "2025-12-04T22:08:39.736Z",
+    "updatedDate": "2025-12-04T22:11:35.366Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320881f309704f7c3517c6"
+  },
+  "title": "Lisey's Story",
+  "author_first_name": "Stephen",
+  "author_last_name": "King",
+  "publication_year": 2006,
+  "series_name": "",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 0,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "74cd7b",
+  "tracking": {
+    "uuid": "74cd7b50-2aaa-40a9-b41b-f06183c6e043",
+    "createdDate": "2025-12-04T22:17:37.214Z",
+    "updatedDate": "2025-12-04T22:21:20.981Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693208e0f309704f7c3517c7"
+  },
+  "title": "Strange Pictures",
+  "author_first_name": "NA",
+  "author_last_name": "Uketsu",
+  "publication_year": 2022,
+  "series_name": "",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 0,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "7c4b82",
+  "tracking": {
+    "uuid": "7c4b8212-62f8-4fb5-aaca-890be9d13e8d",
+    "createdDate": "2025-12-04T22:19:12.941Z",
+    "updatedDate": "2025-12-04T22:21:35.116Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932091cf309704f7c3517c8"
+  },
+  "title": "The Rise of Silas Lapham",
+  "author_first_name": "William",
+  "author_last_name": "Howells",
+  "publication_year": 1885,
+  "series_name": "",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 0,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "fbbbad",
+  "tracking": {
+    "uuid": "fbbbadd9-5d93-424b-9b00-8abad426d8fb",
+    "createdDate": "2025-12-04T22:20:12.377Z",
+    "updatedDate": "2025-12-04T22:21:51.409Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932094af309704f7c3517c9"
+  },
+  "title": "Billy Summers",
+  "author_first_name": "Stephen",
+  "author_last_name": "King",
+  "publication_year": 2021,
+  "series_name": "",
+  "location": "Hallway Shelf of Shame",
+  "bookcase": 0,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "7ad417",
+  "tracking": {
+    "uuid": "7ad417c9-9b0f-4566-a472-3ddab112bdfd",
+    "createdDate": "2025-12-04T22:20:58.225Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320ae5f309704f7c3517ca"
+  },
+  "title": "As You Wish: Inconceivable Tales from the Making of the Princess Bride",
+  "author_first_name": "Cary",
+  "author_last_name": "Elwes",
+  "publication_year": 2014,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 1,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "679498",
+  "tracking": {
+    "uuid": "679498bf-dad8-42c8-84cf-1f937dd43c65",
+    "createdDate": "2025-12-04T22:27:49.348Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320b19f309704f7c3517cb"
+  },
+  "title": "Apollo's Angels: A History of Ballet",
+  "author_first_name": "Jennifer",
+  "author_last_name": "Homans",
+  "publication_year": 2010,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 1,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "3ca370",
+  "tracking": {
+    "uuid": "3ca37024-e176-4b98-9fd3-bdb64fd27671",
+    "createdDate": "2025-12-04T22:28:41.973Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320bc4f309704f7c3517cc"
+  },
+  "title": "Weasel's Luck",
+  "author_first_name": "Michael",
+  "author_last_name": "Williams",
+  "publication_year": 1988,
+  "series_name": "Dragon Lance: Heroes",
+  "location": "Living Room",
+  "bookcase": 1,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "e58a82",
+  "tracking": {
+    "uuid": "e58a82bb-a47f-4046-86d2-853c3d7b4126",
+    "createdDate": "2025-12-04T22:31:32.379Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320c00f309704f7c3517cd"
+  },
+  "title": "The History of Henry Esmond",
+  "author_first_name": "William",
+  "author_last_name": "Thackeray",
+  "publication_year": 1852,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 1,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "781b11",
+  "tracking": {
+    "uuid": "781b11ad-e736-45c6-8102-89980ec96e93",
+    "createdDate": "2025-12-04T22:32:32.723Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320e7bf309704f7c3517ce"
+  },
+  "title": "Dragonlance Legends",
+  "author_first_name": "Margaret",
+  "author_last_name": "Weis",
+  "publication_year": 1988,
+  "series_name": "Dragonlance Legends",
+  "location": "Living Room",
+  "bookcase": 1,
+  "bookshelf": 4,
+  "imagePath": "",
+  "id": "d411eb",
+  "tracking": {
+    "uuid": "d411eb37-0d76-4496-b1a0-0d4d7ed1fa47",
+    "createdDate": "2025-12-04T22:43:07.077Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320f0df309704f7c3517cf"
+  },
+  "title": "City of Hawks",
+  "author_first_name": "Gary",
+  "author_last_name": "Gygax",
+  "publication_year": 1987,
+  "series_name": "Grayhawk: Gord the Rogue",
+  "location": "Living Room",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "241b08",
+  "tracking": {
+    "uuid": "241b082f-8f4d-4b09-a518-c70f5f3724db",
+    "createdDate": "2025-12-04T22:45:33.316Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320f56f309704f7c3517d0"
+  },
+  "title": "The Druid of Shannara",
+  "author_first_name": "Terry",
+  "author_last_name": "Brooks",
+  "publication_year": 1991,
+  "series_name": "The Heritage of Shannara",
+  "location": "Living Room",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "bf5143",
+  "tracking": {
+    "uuid": "bf514371-3efc-41c8-9369-38fb318dc099",
+    "createdDate": "2025-12-04T22:46:46.294Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69320fbdf309704f7c3517d1"
+  },
+  "title": "Secret of the Dragon",
+  "author_first_name": "Margaret",
+  "author_last_name": "Weis",
+  "publication_year": 2010,
+  "series_name": "Dragonships of Vindras",
+  "location": "Living Room",
+  "bookcase": 2,
+  "bookshelf": 5,
+  "imagePath": "",
+  "id": "d8e7cd",
+  "tracking": {
+    "uuid": "d8e7cd29-a770-43fb-8471-945f06c11c38",
+    "createdDate": "2025-12-04T22:48:29.680Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321060f309704f7c3517d2"
+  },
+  "title": "Milk and Honey",
+  "author_first_name": "Rupi",
+  "author_last_name": "Kaur",
+  "publication_year": 2015,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 3,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "18ab36",
+  "tracking": {
+    "uuid": "18ab36f1-a21c-40d2-8f81-ff9b6b3e6995",
+    "createdDate": "2025-12-04T22:51:12.410Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932108ff309704f7c3517d3"
+  },
+  "title": "The Sun and Her Flowers",
+  "author_first_name": "Rupi",
+  "author_last_name": "Kaur",
+  "publication_year": 2017,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 3,
+  "bookshelf": 0,
+  "imagePath": "",
+  "id": "e420af",
+  "tracking": {
+    "uuid": "e420af95-6c79-497c-9fe4-f22be3a6a203",
+    "createdDate": "2025-12-04T22:51:59.593Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693210dcf309704f7c3517d4"
+  },
+  "title": "The Adventures of Superman",
+  "author_first_name": "George",
+  "author_last_name": "Lowther",
+  "publication_year": 1995,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 3,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "451167",
+  "tracking": {
+    "uuid": "451167b6-7551-424b-83aa-671ea4c8b3ae",
+    "createdDate": "2025-12-04T22:53:16.730Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321156f309704f7c3517d5"
+  },
+  "title": "Batman: Arkham Asylum - A Serious House on Serious Earth",
+  "author_first_name": "Grant",
+  "author_last_name": "Morrison",
+  "publication_year": 2004,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 3,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "1814b2",
+  "tracking": {
+    "uuid": "1814b258-4599-4872-8b6d-6dba378cde11",
+    "createdDate": "2025-12-04T22:55:18.321Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693211d1f309704f7c3517d6"
+  },
+  "title": "Violent Cases",
+  "author_first_name": "Neil",
+  "author_last_name": "Gaiman",
+  "publication_year": 2018,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 3,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "d5a848",
+  "tracking": {
+    "uuid": "d5a8487e-3be0-4de9-abff-94d1c802290d",
+    "createdDate": "2025-12-04T22:57:21.286Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932135bf309704f7c3517d7"
+  },
+  "title": "Orchid Fever",
+  "author_first_name": "Eric",
+  "author_last_name": "Hansen",
+  "publication_year": 2000,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "b9be5f",
+  "tracking": {
+    "uuid": "b9be5f57-fe97-41b9-88dc-55b5b4a06eab",
+    "createdDate": "2025-12-04T23:03:55.803Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321389f309704f7c3517d8"
+  },
+  "title": "Hawaii",
+  "author_first_name": "James",
+  "author_last_name": "Michener",
+  "publication_year": 1959,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 1,
+  "imagePath": "",
+  "id": "96cdd4",
+  "tracking": {
+    "uuid": "96cdd43b-30e6-4ccb-a06a-8c7e52bafca3",
+    "createdDate": "2025-12-04T23:04:41.473Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693213dbf309704f7c3517d9"
+  },
+  "title": "Fightclub",
+  "author_first_name": "Chuck",
+  "author_last_name": "Palahnjiuk",
+  "publication_year": 1996,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "170aae",
+  "tracking": {
+    "uuid": "170aaed8-347b-46b4-be1b-ac14a0e52b50",
+    "createdDate": "2025-12-04T23:06:03.699Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321423f309704f7c3517da"
+  },
+  "title": "The Essex Serpent",
+  "author_first_name": "Sarah",
+  "author_last_name": "Perry",
+  "publication_year": 2016,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 2,
+  "imagePath": "",
+  "id": "03e009",
+  "tracking": {
+    "uuid": "03e009a1-9d74-4265-ba58-e074ead418c2",
+    "createdDate": "2025-12-04T23:07:15.458Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932145cf309704f7c3517db"
+  },
+  "title": "The Witches",
+  "author_first_name": "Stacy",
+  "author_last_name": "Schiff",
+  "publication_year": 2015,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 3,
+  "imagePath": "",
+  "id": "24b72a",
+  "tracking": {
+    "uuid": "24b72a50-a9be-4f71-8f77-467e3267e075",
+    "createdDate": "2025-12-04T23:08:12.871Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693214bef309704f7c3517dc"
+  },
+  "title": "Bats of the Republic: An Illuminated Novel",
+  "author_first_name": "Zachary",
+  "author_last_name": "Dodson",
+  "publication_year": 2015,
+  "series_name": "",
+  "location": "Living Room",
+  "bookcase": 4,
+  "bookshelf": 3,
+  "imagePath": "",
+  "id": "ed4fd4",
+  "tracking": {
+    "uuid": "ed4fd4fb-983b-488b-a3d0-bdf6598fe200",
+    "createdDate": "2025-12-04T23:09:50.453Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932162df309704f7c3517dd"
+  },
+  "title": "The Boxcar Children",
+  "author_first_name": "Gertrude",
+  "author_last_name": "Warner",
+  "publication_year": 1942,
+  "series_name": "The Boxcar Children",
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 1,
+  "id": "83b4bf",
+  "tracking": {
+    "uuid": "83b4bf25-9f45-4cc8-96d0-f93f6b421e6c",
+    "createdDate": "2025-12-04T23:15:57.083Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321638f309704f7c3517de"
+  },
+  "title": "Surprise Island",
+  "author_first_name": "Gertrude",
+  "author_last_name": "Warner",
+  "publication_year": 1949,
+  "series_name": "The Boxcar Children",
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 1,
+  "id": "e18a0c",
+  "tracking": {
+    "uuid": "e18a0cdd-4406-42af-902f-22705a055b54",
+    "createdDate": "2025-12-04T23:16:08.720Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321660f309704f7c3517df"
+  },
+  "title": "The Yellow House Mystery",
+  "author_first_name": "Gertrude",
+  "author_last_name": "Warner",
+  "publication_year": 1953,
+  "series_name": "The Boxcar Children",
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 1,
+  "id": "26a70e",
+  "tracking": {
+    "uuid": "26a70e5b-5e59-4b8f-89f1-aa1c6dd2daf9",
+    "createdDate": "2025-12-04T23:16:48.877Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321677f309704f7c3517e0"
+  },
+  "title": "Mystery Ranch",
+  "author_first_name": "Gertrude",
+  "author_last_name": "Warner",
+  "publication_year": 1958,
+  "series_name": "The Boxcar Children",
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 1,
+  "id": "471a58",
+  "tracking": {
+    "uuid": "471a5873-2062-466d-8d08-1688d4ea10d7",
+    "createdDate": "2025-12-04T23:17:11.309Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693216e7f309704f7c3517e1"
+  },
+  "title": "And Tango Makes Three",
+  "author_first_name": "Justin",
+  "author_last_name": "Richardson",
+  "publication_year": 2005,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 2,
+  "id": "7741b8",
+  "tracking": {
+    "uuid": "7741b8b6-4d44-4373-a6c6-79466449a991",
+    "createdDate": "2025-12-04T23:19:03.476Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321739f309704f7c3517e2"
+  },
+  "title": "The Velveteen Rabbit",
+  "author_first_name": "Margery",
+  "author_last_name": "Bianco",
+  "publication_year": 2012,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 2,
+  "id": "6c14c3",
+  "tracking": {
+    "uuid": "6c14c354-fce1-443f-941a-aa63c44a5a78",
+    "createdDate": "2025-12-04T23:20:25.494Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932178cf309704f7c3517e3"
+  },
+  "title": "Harold and the Purple Crayon",
+  "author_first_name": "Crockett",
+  "author_last_name": "Johnson",
+  "publication_year": 1955,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "id": "40f0a6",
+  "tracking": {
+    "uuid": "40f0a647-7137-464c-9e44-7920c8e89456",
+    "createdDate": "2025-12-04T23:21:48.466Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693217a8f309704f7c3517e4"
+  },
+  "title": "Harold's ABC",
+  "author_first_name": "Crockett",
+  "author_last_name": "Johnson",
+  "publication_year": 1963,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 3,
+  "id": "b33024",
+  "tracking": {
+    "uuid": "b3302495-c8cf-45c2-a7d3-ae6067871ae6",
+    "createdDate": "2025-12-04T23:22:16.408Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693217e8f309704f7c3517e5"
+  },
+  "title": "Paddington in the Garden",
+  "author_first_name": "Michael",
+  "author_last_name": "Bond",
+  "publication_year": 2001,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 4,
+  "id": "2de7b1",
+  "tracking": {
+    "uuid": "2de7b1c3-5f2e-4f57-ae48-6c65f943beb9",
+    "createdDate": "2025-12-04T23:23:20.014Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321818f309704f7c3517e6"
+  },
+  "title": "Elephant's Story",
+  "author_first_name": "Harriet",
+  "author_last_name": "Blackford",
+  "publication_year": 2008,
+  "location": "Living Room",
+  "bookcase": 5,
+  "bookshelf": 4,
+  "id": "b9f577",
+  "tracking": {
+    "uuid": "b9f577b8-1cd9-4f7f-bf2b-a17d07ce8a9e",
+    "createdDate": "2025-12-04T23:24:08.613Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693218eef309704f7c3517e7"
+  },
+  "title": "The Dragon and the Raven or the Days of King Alfred",
+  "author_first_name": "G.A.",
+  "author_last_name": "Henty",
+  "publication_year": 1885,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 0,
+  "id": "56ad8f",
+  "tracking": {
+    "uuid": "56ad8f97-6b09-429b-81dd-4cdce181eee1",
+    "createdDate": "2025-12-04T23:27:42.601Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321936f309704f7c3517e8"
+  },
+  "title": "Peter Pan",
+  "author_first_name": "J.M.",
+  "author_last_name": "Barrie",
+  "publication_year": 1911,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 0,
+  "id": "f668ac",
+  "tracking": {
+    "uuid": "f668ac73-19aa-4756-8e74-cfe743d89ec6",
+    "createdDate": "2025-12-04T23:28:54.212Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321973f309704f7c3517e9"
+  },
+  "title": "The Nightmare Before Christmas",
+  "author_first_name": "Tim",
+  "author_last_name": "Burton",
+  "publication_year": 1993,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 1,
+  "id": "8d57ff",
+  "tracking": {
+    "uuid": "8d57ff9d-3398-4587-bf77-36693afdaad0",
+    "createdDate": "2025-12-04T23:29:55.383Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693219d1f309704f7c3517ea"
+  },
+  "title": "Stardust Explores the Solar System",
+  "author_first_name": "Baily",
+  "author_last_name": "Harris",
+  "publication_year": 2018,
+  "series_name": "Stardust Science",
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 1,
+  "id": "c35cf2",
+  "tracking": {
+    "uuid": "c35cf2e8-d597-4a25-8f8d-25cc8b91ad60",
+    "createdDate": "2025-12-04T23:31:29.879Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321a4ff309704f7c3517eb"
+  },
+  "title": "Bats at the Beach",
+  "author_first_name": "Brian",
+  "author_last_name": "Lies",
+  "publication_year": 2006,
+  "series_name": "Bat Books",
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 2,
+  "id": "7fc0b0",
+  "tracking": {
+    "uuid": "7fc0b0f7-6e10-446d-9fd8-f2113b9d6f1a",
+    "createdDate": "2025-12-04T23:33:35.669Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321a9af309704f7c3517ec"
+  },
+  "title": "The Little Shop of Monsters",
+  "author_first_name": "R.L.",
+  "author_last_name": "Stine",
+  "publication_year": 2015,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 2,
+  "id": "8764ec",
+  "tracking": {
+    "uuid": "8764ecf0-ce0e-4971-83f8-d88b5948d96c",
+    "createdDate": "2025-12-04T23:34:50.766Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321ca7f309704f7c3517ed"
+  },
+  "title": "Eeyore Finds the Wolery",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "990a0a",
+  "tracking": {
+    "uuid": "990a0a8e-6f03-4d92-8e4f-17204c9f650b",
+    "createdDate": "2025-12-04T23:43:35.307Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321cc5f309704f7c3517ee"
+  },
+  "title": "A Search is Organdized",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "478330",
+  "tracking": {
+    "uuid": "47833012-d2c5-4d42-89c2-03f69b33c6d1",
+    "createdDate": "2025-12-04T23:44:05.505Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321cdcf309704f7c3517ef"
+  },
+  "title": "Tigger is Unbounced",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "591621",
+  "tracking": {
+    "uuid": "59162123-45f9-4a4e-a9de-2c2a7bae29c4",
+    "createdDate": "2025-12-04T23:44:28.896Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321cf7f309704f7c3517f0"
+  },
+  "title": "Piglet Does a Very Grand Thing",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "ec9a0e",
+  "tracking": {
+    "uuid": "ec9a0e0d-ae88-4b66-bb17-66c4376e6f26",
+    "createdDate": "2025-12-04T23:44:55.351Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321d0af309704f7c3517f1"
+  },
+  "title": "Pooh Invents a New Game",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "3378b9",
+  "tracking": {
+    "uuid": "3378b99f-be27-41b0-87c8-659e27e399db",
+    "createdDate": "2025-12-04T23:45:14.827Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321d24f309704f7c3517f2"
+  },
+  "title": "A House is Built at Pooh Corner for Eeyore",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "8ee0b0",
+  "tracking": {
+    "uuid": "8ee0b088-90c8-4418-a7ae-343d19251952",
+    "createdDate": "2025-12-04T23:45:40.225Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321d4bf309704f7c3517f3"
+  },
+  "title": "Tigger Comes to the Forest and Has Breakfast",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "3e1a55",
+  "tracking": {
+    "uuid": "3e1a5552-9f1c-43fa-b2c1-abba53063bec",
+    "createdDate": "2025-12-04T23:46:19.908Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321d61f309704f7c3517f4"
+  },
+  "title": "Tiggers Don't Climb Trees",
+  "author_first_name": "A.A.",
+  "author_last_name": "Milne",
+  "series_name": "The Original Pooh Treasury",
+  "publication_year": 1992,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 5,
+  "id": "341576",
+  "tracking": {
+    "uuid": "3415763a-5841-4981-89f4-69df63a736cf",
+    "createdDate": "2025-12-04T23:46:41.209Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321dd1f309704f7c3517f5"
+  },
+  "title": "Cinderella",
+  "author_first_name": "Susanna",
+  "author_last_name": "Davidson",
+  "publication_year": 2014,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 4,
+  "id": "bdd41c",
+  "tracking": {
+    "uuid": "bdd41c3d-9d1c-43ac-bc38-c01343f3730d",
+    "createdDate": "2025-12-04T23:48:33.003Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321e19f309704f7c3517f6"
+  },
+  "title": "The Book of Beasts",
+  "author_first_name": "E.",
+  "author_last_name": "Nesbit",
+  "publication_year": 1988,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 4,
+  "id": "39bb58",
+  "tracking": {
+    "uuid": "39bb584c-a1bf-45a0-ab73-9d0b65fe41da",
+    "createdDate": "2025-12-04T23:49:45.233Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321eddf309704f7c3517f7"
+  },
+  "title": "The Book of Wizard Craft: In Which the Apprentice Finds Spells, Potions, Fantastic Tales, & 50 Enchanting Things to Make",
+  "author_first_name": "Janice",
+  "author_last_name": "Eaton",
+  "publication_year": 2001,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 3,
+  "id": "1d4709",
+  "tracking": {
+    "uuid": "1d47097b-9001-4f16-8abf-f805ffe167b4",
+    "createdDate": "2025-12-04T23:53:01.093Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69321eebf309704f7c3517f8"
+  },
+  "title": "The Book of Wizard Parties: In Which the Wizard Shares the Secrets of Creating Enchanted Gatherings",
+  "author_first_name": "Janice",
+  "author_last_name": "Eaton",
+  "publication_year": 2001,
+  "location": "Living Room",
+  "bookcase": 6,
+  "bookshelf": 3,
+  "id": "53e04e",
+  "tracking": {
+    "uuid": "53e04e0d-c854-4f2f-b017-7882843cc190",
+    "createdDate": "2025-12-04T23:53:15.969Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69322061f309704f7c3517f9"
+  },
+  "title": "Oscar Wilde",
+  "author_first_name": "Richard",
+  "author_last_name": "Ellmann",
+  "publication_year": 1988,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 1,
+  "id": "f42f10",
+  "tracking": {
+    "uuid": "f42f102c-bdc0-4022-b51a-0fae5508fca3",
+    "createdDate": "2025-12-04T23:59:29.490Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693220c5f309704f7c3517fa"
+  },
+  "title": "Dr. Seuess & Mr. Geisel",
+  "author_first_name": "Judith",
+  "author_last_name": "Morgan",
+  "publication_year": 1995,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 1,
+  "id": "a46854",
+  "tracking": {
+    "uuid": "a468541a-29d2-4326-9595-55295a828740",
+    "createdDate": "2025-12-05T00:01:09.020Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "69322199f309704f7c3517fb"
+  },
+  "title": "Badass: The Birth of a Legend: Spine-Crushing Tales of the Most Merciless Gods, Monsters, Heroes, Villains, and Mythical Creatures Ever Envisioned",
+  "author_first_name": "Ben",
+  "author_last_name": "Thompson",
+  "series_name": "Badass Series",
+  "publication_year": 2011,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 2,
+  "id": "4e0285",
+  "tracking": {
+    "uuid": "4e028535-d74c-41d7-860b-bd720fa4ac7c",
+    "createdDate": "2025-12-05T00:04:41.997Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932224ef309704f7c3517fc"
+  },
+  "title": "Badass: A Relentless Onslaught of the Toughest Warlords, Vikings, Samurai, Pirates, Gunfighters, and Military Commanders to Ever Live",
+  "author_first_name": "Ben",
+  "author_last_name": "Thompson",
+  "series_name": "Badass Series",
+  "publication_year": 2009,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 2,
+  "id": "34aeec",
+  "tracking": {
+    "uuid": "34aeece7-411e-4050-8cd7-0cc15495e18e",
+    "createdDate": "2025-12-05T00:07:42.530Z",
+    "updatedDate": "2025-12-05T00:09:32.863Z"
+  },
+  "comments": [],
+  "imagePath": ""
+},
+{
+  "_id": {
+    "$oid": "693222f6f309704f7c3517fd"
+  },
+  "title": "Badass: Ultimate Deathmatch: Skull-Crushing True Stories of the Most Hardcore Duels, Showdowns, Fistfights, Last Stands, Suicide Charges, and Military Engagements of All Time",
+  "author_first_name": "Ben",
+  "author_last_name": "Thompson",
+  "series_name": "Badass Series",
+  "publication_year": 2013,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 2,
+  "id": "09c058",
+  "tracking": {
+    "uuid": "09c058e0-cd6b-4565-ba8b-18d0430d9da2",
+    "createdDate": "2025-12-05T00:10:30.626Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "6932235ff309704f7c3517fe"
+  },
+  "title": "Undeniable: Evolution and the Science of Creation",
+  "author_first_name": "Bill",
+  "author_last_name": "Nye",
+  "series_name": "Un... Series",
+  "publication_year": 2014,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 3,
+  "id": "babe27",
+  "tracking": {
+    "uuid": "babe27fe-c1dd-40e9-ad3b-6632e6288e42",
+    "createdDate": "2025-12-05T00:12:15.009Z"
+  },
+  "comments": []
+},
+{
+  "_id": {
+    "$oid": "693223adf309704f7c3517ff"
+  },
+  "title": "The Closing of the Western Mind: The Rise of Faith and the Fall of Reason",
+  "author_first_name": "Charles",
+  "author_last_name": "Freeman",
+  "publication_year": 2002,
+  "location": "Living Room",
+  "bookcase": 7,
+  "bookshelf": 3,
+  "id": "8ea4c5",
+  "tracking": {
+    "uuid": "8ea4c5b0-c855-437d-a4f8-cb5926bb9099",
+    "createdDate": "2025-12-05T00:13:33.433Z"
+  },
+  "comments": []
+}]
