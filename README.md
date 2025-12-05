@@ -88,3 +88,27 @@ booklists
 └─ tests
 
 ```
+
+📁 ## Sample Data Folder (/data)
+    
+The /data directory contains a JSON file used to preload the database with example book records.
+
+### File Included
+
+- booklists-data.json
+    A structured dataset of books used for:
+
+        - seeding a local MongoDB instance
+
+        - running tests
+
+        - providing default records for fresh installs
+
+                                                                                        ### Using the Sample Data
+
+If you want to load the sample books into your database:
+```bash
+mongoimport --db booklists --collection booklists --file ./data/booklists-data.json --jsonArray
+```
+
+This is optional—your API works without it—but importing it will give your Angular BookNest frontend a complete set of example titles to browse, edit, and search.
