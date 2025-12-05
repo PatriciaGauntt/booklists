@@ -94,8 +94,9 @@ booklists
 The /data directory contains a JSON file used to preload the database with example book records.
 
 ### File Included
-
-- booklists-data.json
+```
+booklists-data.json
+```
 A structured dataset of books used for:
 
 - seeding a local MongoDB instance
