@@ -89,22 +89,19 @@ booklists
 
 ```
 
-📁 ## Sample Data Folder (/data)
+📁 Sample Data Folder (/data)
     
 The /data directory contains a JSON file used to preload the database with example book records.
 
 ### File Included
 
 - booklists-data.json
-    A structured dataset of books used for:
+A structured dataset of books used for:
 
-        - seeding a local MongoDB instance
+- seeding a local MongoDB instance
+- running tests
+- providing default records for fresh installs
 
-        - running tests
-
-        - providing default records for fresh installs
-
-                                                                                        ### Using the Sample Data
 
 If you want to load the sample books into your database:
 ```bash
