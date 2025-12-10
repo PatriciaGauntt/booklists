@@ -93,7 +93,6 @@ static async deleteBookList(req, res) {
       return res.status(404).json({ error: "Book not found" });
     }
 
-    // 200 response ensures Bruno/Postman see it correctly
     return res.status(200).json({ success: true });
   } catch (err) {
     return res.status(err.statusCode || 500).json({
