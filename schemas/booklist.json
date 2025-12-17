@@ -40,6 +40,9 @@
     "bookshelf": {
       "type": "number"
     },
+    "isbn": {
+      "type": "string"
+    },
     "imagePath": {
       "type": "string"
     },

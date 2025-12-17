@@ -11,6 +11,9 @@ export class BookListModel {
     // Ensure uniqueness of book id
     collection.createIndex({ id: 1 }, { unique: true }).catch(console.error);
 
+    // Index ISBN
+    collection.createIndex({ isbn: 1 }).catch(console.error);
+
     return collection;
   }
 

@@ -136,4 +136,23 @@ static async deleteComment(req, res) {
     res.status(500).json({ message: 'Server error deleting comment' });
   }
 }
+// ============================================================
+// ISBN LOOKUP
+// ============================================================
+static async lookupBookByISBN(req, res) {
+  try {
+    logger.debug('Controller : lookupBookByISBN');
+
+    const { isbn } = req.params;
+
+    const result = await BookListService.lookupBookByISBN(isbn);
+
+    res.status(200).json(result);
+  } catch (err) {
+    logger.error(err.message);
+    res.status(err.statusCode || 500).json({
+      error: err.message,
+    });
+  }
+}
 }

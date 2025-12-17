@@ -251,5 +251,70 @@ export class BookListService {
   static async deleteComment(bookId, commentId) {
     return await BookListModel.deleteComment(bookId, commentId);
   }
+
+  // ============================================================
+  // ISBN LOOKUP
+  // ============================================================
+
+  static async lookupBookByISBN(isbn) {
+    logger.debug('Service : lookupBookByISBN');
+
+    if (!isbn || !isbn.trim()) {
+      const error = new Error('ISBN is required');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const normalizedIsbn = isbn.replace(/[-\s]/g, '');
+
+    if (!/^\d{10}(\d{3})?$/.test(normalizedIsbn)) {
+      const error = new Error('Invalid ISBN format');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${normalizedIsbn}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      const error = new Error('Failed to reach Google Books API');
+      error.statusCode = 502;
+      throw error;
+    }
+
+    const data = await response.json();
+
+    if (!data.items || data.items.length === 0) {
+      const error = new Error('No book found for this ISBN');
+      error.statusCode = 404;
+      throw error;
+    }
+
+    const volumeInfo = data.items[0].volumeInfo;
+
+    let author_first_name = '';
+    let author_last_name = '';
+
+    if (volumeInfo.authors && volumeInfo.authors.length > 0) {
+      const parts = volumeInfo.authors[0].split(' ');
+      author_first_name = parts.slice(0, -1).join(' ');
+      author_last_name = parts.slice(-1).join('');
+    }
+
+    return {
+      isbn: normalizedIsbn,
+      title: volumeInfo.title || '',
+      author_first_name,
+      author_last_name,
+      publication_year: volumeInfo.publishedDate
+        ? parseInt(volumeInfo.publishedDate.slice(0, 4), 10)
+        : null,
+      series_name: '',
+      imagePath:
+        volumeInfo.imageLinks?.thumbnail
+          || `https://covers.openlibrary.org/b/isbn/${normalizedIsbn}-L.jpg`
+    };
+  }
 }
 
