@@ -82,7 +82,6 @@ export class BookListController {
 // ============================================================
 // DELETE
 // ============================================================
- 
 static async deleteBookList(req, res) {
   logger.debug(`Controller : deleteBookList, id: ${req.params.id}`);
 
@@ -90,16 +89,18 @@ static async deleteBookList(req, res) {
     const deleted = await BookListService.deleteBookList(req.params.id);
 
     if (!deleted) {
-      return res.status(404).json({ error: "Book not found" });
+      return res.sendStatus(404);
     }
 
-    return res.status(200).json({ success: true });
+    return res.sendStatus(204);
   } catch (err) {
+    logger.error(err.message);
     return res.status(err.statusCode || 500).json({
       error: err.message || "Unknown error deleting booklist"
     });
   }
 }
+
 
 // ============================================================
 // ADD COMMENT

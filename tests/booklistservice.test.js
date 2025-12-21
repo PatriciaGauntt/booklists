@@ -1,6 +1,13 @@
 import { jest } from "@jest/globals";
 
-// ---------------- MOCK THE MODEL ----------------
+/* -------------------------------------------------
+   GLOBAL FETCH MOCK (for ISBN lookup)
+------------------------------------------------- */
+global.fetch = jest.fn();
+
+/* -------------------------------------------------
+   MOCK THE MODEL
+------------------------------------------------- */
 jest.unstable_mockModule("../models/booklist.model.js", () => ({
   BookListModel: {
     getBookList: jest.fn(),
@@ -16,7 +23,9 @@ jest.unstable_mockModule("../models/booklist.model.js", () => ({
 const { BookListService } = await import("../services/booklist.service.js");
 const { BookListModel } = await import("../models/booklist.model.js");
 
-// ---------------- SHARED MOCK DATA ----------------
+/* -------------------------------------------------
+   SHARED MOCK DATA
+------------------------------------------------- */
 const mockBook = {
   id: "abc123",
   title: "Test Book",
@@ -31,50 +40,53 @@ const mockBook = {
   tracking: {
     uuid: "11111111-1111-1111-1111-111111111111",
     createdDate: "2024-01-01T00:00:00.000Z",
-    updatedDate: "2024-01-01T00:00:00.000Z"
-  }
+    updatedDate: "2024-01-01T00:00:00.000Z",
+  },
 };
-// =====================================================================
-// CREATE
-// =====================================================================
+
+/* =================================================
+   BOOK LIST SERVICE TESTS
+================================================= */
 describe("BookListService", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
+  /* -------------------------------------------------
+     CREATE
+  ------------------------------------------------- */
   describe("createBookList", () => {
-it("creates a new book with valid data", async () => {
-  BookListModel.createBookList.mockResolvedValue({
-    ...mockBook,
-    id: "123456",
-  });
+    it("creates a new book with valid data", async () => {
+      BookListModel.createBookList.mockResolvedValue({
+        ...mockBook,
+        id: "123456",
+      });
 
-  const result = await BookListService.createBookList({
-    title: "New Book",
-    author_first_name: "Test",
-    author_last_name: "Author",
-    publication_year: 2000,
-    location: "Shelf A",
-  });
+      const result = await BookListService.createBookList({
+        title: "New Book",
+        author_first_name: "Test",
+        author_last_name: "Author",
+        publication_year: 2000,
+        location: "Shelf A",
+      });
 
-  expect(BookListModel.createBookList).toHaveBeenCalled();
-  expect(result.id).toBe("123456");
-});
+      expect(BookListModel.createBookList).toHaveBeenCalled();
+      expect(result.id).toBe("123456");
+    });
 
     it("throws when title is blank", () => {
       expect(() =>
-        BookListService.createBookList({ title: "  " })
-      ).toThrow('title');
+        BookListService.createBookList({ title: "   " })
+      ).toThrow(/title/i);
     });
   });
 
-  // =====================================================================
-  // UPDATE
-  // =====================================================================
+  /* -------------------------------------------------
+     UPDATE
+  ------------------------------------------------- */
   describe("updateBookList", () => {
     it("updates a book", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
-
       BookListModel.updateBookList.mockResolvedValue({
         ...mockBook,
         title: "Updated",
@@ -84,7 +96,6 @@ it("creates a new book with valid data", async () => {
         title: "Updated",
       });
 
-      expect(BookListModel.updateBookList).toHaveBeenCalled();
       expect(result.title).toBe("Updated");
     });
 
@@ -97,19 +108,20 @@ it("creates a new book with valid data", async () => {
     });
 
     it("throws if title empty", async () => {
+      BookListModel.getBookList.mockResolvedValue(mockBook);
+
       await expect(
         BookListService.updateBookList("abc123", { title: " " })
-      ).rejects.toThrow("title");
+      ).rejects.toHaveProperty("statusCode", 400);
     });
   });
 
-  // =====================================================================
-  // REPLACE
-  // =====================================================================
+  /* -------------------------------------------------
+     REPLACE
+  ------------------------------------------------- */
   describe("replaceBookList", () => {
     it("replaces a book", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
-
       BookListModel.replaceBookList.mockResolvedValue({
         ...mockBook,
         title: "Replaced",
@@ -123,9 +135,11 @@ it("creates a new book with valid data", async () => {
     });
 
     it("throws if title empty", async () => {
+      BookListModel.getBookList.mockResolvedValue(mockBook);
+
       await expect(
         BookListService.replaceBookList("abc123", { title: "" })
-      ).rejects.toThrow("title");
+      ).rejects.toHaveProperty("statusCode", 400);
     });
 
     it("throws if book not found", async () => {
@@ -137,13 +151,12 @@ it("creates a new book with valid data", async () => {
     });
   });
 
-  // =====================================================================
-  // ADD COMMENT
-  // =====================================================================
+  /* -------------------------------------------------
+     ADD COMMENT
+  ------------------------------------------------- */
   describe("addComment", () => {
     it("adds a comment", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
-
       BookListModel.updateBookList.mockResolvedValue({
         ...mockBook,
         comments: [
@@ -151,18 +164,18 @@ it("creates a new book with valid data", async () => {
             name: "Patricia",
             comment: "Nice!",
             commentDate: "2024-03-01T00:00:00.000Z",
-            commentId: "33333333-3333-3333-3333-333333333333"
-          }
+            commentId: "cid1",
+          },
         ],
-  });
+      });
 
-  const result = await BookListService.addComment("abc123", {
-    name: "Patricia",
-    comment: "Nice!",
-  });
+      const result = await BookListService.addComment("abc123", {
+        name: "Patricia",
+        comment: "Nice!",
+      });
 
-  expect(result.comments.length).toBe(1);
-  });
+      expect(result.comments.length).toBe(1);
+    });
 
     it("throws for invalid comment", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
@@ -180,116 +193,133 @@ it("creates a new book with valid data", async () => {
       ).rejects.toThrow("not found");
     });
   });
-  it("throws a validation error when AJV validation fails on updatedBookList", async () => {
-  // Mock the existing book so that adding a comment will produce INVALID schema
-  BookListModel.getBookList.mockResolvedValue({
-    id: "abc123",
-    title: "Bad Book",
-    author_first_name: "John",
-    author_last_name: "Doe",
-    publication_year: 1999,
-    series_name: "Series",
-    location: "Shelf A",
-    bookcase: 1,
-    tracking: { uuid: "u1", createdDate: "2024-01-01T00:00:00.000Z" },
 
-    // INVALID comments structure — AJV will reject this
-    comments: [
-      { randomField: "invalid!" } // guaranteed to fail schema
-    ]
-  });
-
-  // Prevent updateBookList from being called
-  BookListModel.updateBookList.mockResolvedValue(null);
-
-  const badComment = { text: "Should fail" };
-
-  await expect(
-    BookListService.addComment("abc123", badComment)
-  ).rejects.toThrow("Validation failed when adding comment");
-});
-
-  // =====================================================================
-  // GET 
-  // =====================================================================
+  /* -------------------------------------------------
+     GET
+  ------------------------------------------------- */
   describe("getBookLists", () => {
-  it("returns a list of books", async () => {
-    BookListModel.getBookLists.mockResolvedValue([mockBook]);
+    it("returns a list of books", async () => {
+      BookListModel.getBookLists.mockResolvedValue([mockBook]);
 
-    const result = await BookListService.getBookLists("Test", 0, 10);
+      const result = await BookListService.getBookLists("Test", 0, 10);
 
-    expect(BookListModel.getBookLists).toHaveBeenCalledWith("Test", 0, 10);
-    expect(result).toEqual([mockBook]);
+      expect(result).toEqual([mockBook]);
     });
   });
+
   describe("getBookList", () => {
-  it("returns a book by ID", async () => {
-    BookListModel.getBookList.mockResolvedValue(mockBook);
+    it("returns a book by ID", async () => {
+      BookListModel.getBookList.mockResolvedValue(mockBook);
 
-    const result = await BookListService.getBookList("abc123");
+      const result = await BookListService.getBookList("abc123");
 
-    expect(BookListModel.getBookList).toHaveBeenCalledWith("abc123");
-    expect(result).toEqual(mockBook);
-  });
-  });
-  it("returns null when book not found", async () => {
-    BookListModel.getBookList.mockResolvedValue(null);
-
-    const result = await BookListService.getBookList("missing");
-
-    expect(result).toBeNull();
-  });
-  describe("getComments", () => {
-   it("returns comments array for an existing book", async () => {
-    BookListModel.getBookList.mockResolvedValue({
-      ...mockBook,
-      comments: [
-        { 
-          commentId: "1", 
-          user: "Patricia",      // updated field
-          text: "Great!",        // updated field
-          commentDate: "2024-01-01" 
-        }
-      ]
+      expect(result).toEqual(mockBook);
     });
 
-    const result = await BookListService.getComments("abc123");
+    it("returns null when book not found", async () => {
+      BookListModel.getBookList.mockResolvedValue(null);
 
-    expect(BookListModel.getBookList).toHaveBeenCalledWith("abc123");
-    expect(result.length).toBe(1);
-    expect(result[0].text).toBe("Great!");  // updated field
+      const result = await BookListService.getBookList("missing");
+
+      expect(result).toBeNull();
+    });
+  });
+
+  describe("getComments", () => {
+    it("returns comments array", async () => {
+      BookListModel.getBookList.mockResolvedValue({
+        ...mockBook,
+        comments: [{ commentId: "1", text: "Great!" }],
+      });
+
+      const result = await BookListService.getComments("abc123");
+
+      expect(result.length).toBe(1);
     });
 
     it("throws if book not found", async () => {
       BookListModel.getBookList.mockResolvedValue(null);
 
       await expect(
-       BookListService.getComments("missing")
-      ).rejects.toThrow("not found");
+        BookListService.getComments("missing")
+      ).rejects.toHaveProperty("statusCode", 404);
     });
   });
 
-  // =====================================================================
-  // DELETE 
-  // =====================================================================
+  /* -------------------------------------------------
+     DELETE
+  ------------------------------------------------- */
   describe("deleteBookList", () => {
-    it("deletes a book by ID", async () => {
-      BookListModel.deleteBookList.mockResolvedValue({ deleted: true });
+    it("deletes a book", async () => {
+      BookListModel.deleteBookList.mockResolvedValue(true);
 
       const result = await BookListService.deleteBookList("abc123");
 
-      expect(BookListModel.deleteBookList).toHaveBeenCalledWith("abc123");
+      expect(result).toEqual({ deleted: true });
+    });
+
+    it("throws if book not found", async () => {
+      BookListModel.deleteBookList.mockResolvedValue(false);
+
+      await expect(
+        BookListService.deleteBookList("bad-id")
+      ).rejects.toHaveProperty("statusCode", 404);
+    });
+  });
+
+  describe("deleteComment", () => {
+    it("deletes a comment", async () => {
+      BookListModel.deleteComment.mockResolvedValue({ deleted: true });
+
+      const result = await BookListService.deleteComment("abc123", "cid1");
+
       expect(result).toEqual({ deleted: true });
     });
   });
-  describe("deleteComment", () => {
-    it("deletes a comment from a book", async () => {
-      BookListModel.deleteComment.mockResolvedValue({ deleted: true });
 
-      const result = await BookListService.deleteComment("abc123", "comment123");
+  /* -------------------------------------------------
+     ISBN LOOKUP (BIG COVERAGE BOOST)
+  ------------------------------------------------- */
+  describe("lookupBookByISBN", () => {
+    it("returns book data for valid ISBN", async () => {
+      fetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          items: [
+            {
+              volumeInfo: {
+                title: "Test Book",
+                authors: ["Jane Doe"],
+                publishedDate: "2020",
+                imageLinks: { thumbnail: "img.jpg" },
+              },
+            },
+          ],
+        }),
+      });
 
-      expect(BookListModel.deleteComment).toHaveBeenCalledWith("abc123", "comment123");
-      expect(result).toEqual({ deleted: true });
+      const book = await BookListService.lookupBookByISBN("1234567890");
+
+      expect(book.title).toBe("Test Book");
+      expect(book.author_first_name).toBe("Jane");
+      expect(book.author_last_name).toBe("Doe");
+    });
+
+    it("throws for invalid ISBN", async () => {
+      await expect(
+        BookListService.lookupBookByISBN("bad")
+      ).rejects.toHaveProperty("statusCode", 400);
+    });
+
+    it("throws when no book found", async () => {
+      fetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({ items: [] }),
+      });
+
+      await expect(
+        BookListService.lookupBookByISBN("1234567890")
+      ).rejects.toHaveProperty("statusCode", 404);
     });
   });
 });

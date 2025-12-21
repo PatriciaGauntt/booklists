@@ -53,8 +53,7 @@ export class BookListModel {
   static async createBookList(bookList) {
     logger.debug('Model : createBookList');
     const collection = this.getCollection();
-
-    // Ensure comments always exists (optional but convenient)
+    
     if (!bookList.comments) bookList.comments = [];
 
     await collection.insertOne(bookList);
@@ -66,17 +65,22 @@ export class BookListModel {
   // ============================================================
   // PATCH — Partial Update
   // ============================================================
+
   static async updateBookList(id, bookList) {
     logger.debug(`Model : updateBookList, id: ${id}`);
 
     const updateStatement = { $set: {} };
 
-    // Allow updating any field EXCEPT id
     Object.keys(bookList).forEach((key) => {
       if (key !== 'id') {
         updateStatement.$set[key] = bookList[key];
       }
     });
+
+
+    if (Object.keys(updateStatement.$set).length === 0) {
+      return null;
+    }
 
     const result = await this.getCollection().findOneAndUpdate(
       { id },
@@ -87,36 +91,31 @@ export class BookListModel {
       }
     );
 
-    return result.value;
-  }
+
+    return result; 
+}
 
   // ============================================================
   // PUT — Replace 
   // ============================================================
-  static async replaceBookList(id, bookList) {
-    logger.debug(`Model : replaceBookList, id: ${id}`);
 
-    const collection = this.getCollection();
+static async replaceBookList(id, bookList) {
+  logger.debug(`Model : replaceBookList, id: ${id}`);
 
-    // Force the id to match the route id
-    bookList.id = id;
+  bookList.id = id;
+  if (!bookList.comments) bookList.comments = [];
 
-    // Ensure the comments property always exists
-    if (!bookList.comments) {
-      bookList.comments = [];
+  const result = await this.getCollection().findOneAndReplace(
+    { id },
+    bookList,
+    {
+      returnDocument: 'after',
+      projection: { _id: 0 }
     }
+  );
 
-    const result = await collection.findOneAndReplace(
-      { id },
-      bookList,
-      {
-        returnDocument: 'after',
-        projection: { _id: 0 }
-      }
-    );
-
-    return result.value;
-  }
+  return result;
+}
 
   // ============================================================
   // DELETE
@@ -144,18 +143,62 @@ export class BookListModel {
       }
     );
 
-    return result.value;
+    return result;
   }
+
 
   // ============================================================
   // DELETE COMMENT
   // ============================================================
   static async deleteComment(bookId, commentId) {
-    const result = await this.getCollection().updateOne(
+    const collection = this.getCollection();
+
+    const book = await collection.findOne({ id: bookId });
+    if (!book || !book.comments) return null;
+
+    const exists = book.comments.some(c => c.commentId === commentId);
+    if (!exists) return null;
+
+    const result = await collection.updateOne(
       { id: bookId },
-      { $pull: { comments: { commentId: commentId } } }
+      { $pull: { comments: { commentId } } }
     );
 
     return result.modifiedCount > 0;
   }
+  // ============================================================
+// TEST-COMPATIBILITY WRAPPERS
+// ============================================================
+
+// insertOne → createBookList
+static async insertOne(book) {
+  return this.createBookList(book);
+}
+
+// findAll → getBookLists
+static async findAll() {
+  const cursor = await this.getBookLists(null, 0, 1000);
+  return cursor.toArray();
+}
+
+// findOne → getBookList
+static async findOne(id) {
+  return this.getBookList(id);
+}
+
+// updateOne → updateBookList
+static async updateOne(id, patch) {
+  return this.updateBookList(id, patch);
+}
+
+// replaceOne → replaceBookList
+static async replaceOne(id, book) {
+  return this.replaceBookList(id, book);
+}
+
+// deleteOne → deleteBookList
+static async deleteOne(id) {
+  return this.deleteBookList(id);
+}
+
 }

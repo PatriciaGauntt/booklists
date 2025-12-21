@@ -164,10 +164,11 @@ export class BookListService {
   // -------------------------------------------------
   // DELETE BOOKLIST
   // -------------------------------------------------
+
   static async deleteBookList(id) {
     logger.debug(`Service : deleteBookList, id: ${id}`);
 
-    const deleted = await BookListModel.deleteBookList(id);
+      const deleted = await BookListModel.deleteBookList(id);
 
     if (!deleted) {
       const err = new Error(`Book with id ${id} not found`);
@@ -175,8 +176,10 @@ export class BookListService {
       throw err;
     }
 
-    return { success: true };
+    return { deleted: true };
   }
+
+
   // -------------------------------------------------
   // ADD COMMENT (with field normalizing)
   // -------------------------------------------------

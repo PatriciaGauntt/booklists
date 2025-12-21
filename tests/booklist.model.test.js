@@ -25,15 +25,18 @@ afterAll(async () => {
 });
 
 describe("BookListModel", () => {
-  const sample = {
-    id: "123",
-    title: "Test Book",
-    author: "Someone",
-    comments: [],
-  };
+const sample = {
+  id: "123",
+  title: "Test Book",
+  author_first_name: "Someone",
+  author_last_name: "Tester",
+  publication_year: 2024,
+  location: "Living Room",
+  comments: [],
+};
 
   test("insertOne: inserts a book", async () => {
-    const created = await BookListModel.insertOne(sample);
+    const created = await BookListModel.createBookList(sample);
     expect(created.id).toBe("123");
 
     const db = mongo.getDb();
@@ -46,7 +49,7 @@ describe("BookListModel", () => {
   });
 
   test("findAll: returns a list", async () => {
-    await BookListModel.insertOne(sample);
+    await BookListModel.createBookList(sample);
     const all = await BookListModel.findAll();
 
     expect(Array.isArray(all)).toBe(true);
@@ -55,11 +58,12 @@ describe("BookListModel", () => {
   });
 
   test("findOne: returns single book", async () => {
-    await BookListModel.insertOne(sample);
+    await BookListModel.createBookList(sample);
     const book = await BookListModel.getBookList("123");
 
     expect(book).not.toBeNull();
-    expect(book.author).toBe("Someone");
+    expect(book.author_first_name).toBe("Someone");
+    expect(book.author_last_name).toBe("Tester");
   });
 
   test("findOne: returns null when not found", async () => {
@@ -68,7 +72,7 @@ describe("BookListModel", () => {
   });
 
   test("updateOne: updates book data", async () => {
-    await BookListModel.insertOne(sample);
+    await BookListModel.createBookList(sample);
 
       const updated = await BookListModel.updateBookList("123", { title: "New Title" });
     
@@ -85,16 +89,22 @@ describe("BookListModel", () => {
 
 test("replaceOne: replaces book entirely", async () => {
   await BookListModel.createBookList({
-    id: "123",
-    title: "Old",
-    author: "Old Author",
+  id: "123",
+  title: "Replaced",
+  author_first_name: "Old",
+  author_last_name: "Author",
+  publication_year: 2025,
+  location: "Office",
   });
 
-  const replacement = {
-    id: "123",
-    title: "Replaced",
-    author: "New Author",
-  };
+const replacement = {
+  id: "123",
+  title: "Replaced",
+  author_first_name: "New",
+  author_last_name: "Author",
+  publication_year: 2025,
+  location: "Office",
+};
 
   const replaced = await BookListModel.replaceBookList("123", replacement);
 
@@ -102,7 +112,7 @@ test("replaceOne: replaces book entirely", async () => {
 });
 
   test("replaceOne: returns null when not found", async () => {
-    const result = await BookListModel.replaceOne("nope", sample);
+    const result = await BookListModel.replaceBookList("nope", sample);
     expect(result).toBeNull();
   });
 
@@ -163,7 +173,7 @@ test("replaceOne: replaces book entirely", async () => {
 });
 
   test("deleteComment: returns null if comment or book missing", async () => {
-    await BookListModel.insertOne(sample);
+    await BookListModel.createBookList(sample);
 
     const bad1 = await BookListModel.deleteComment("missing", 0);
     const bad2 = await BookListModel.deleteComment("123", 999);

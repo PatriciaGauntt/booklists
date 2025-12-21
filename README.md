@@ -53,6 +53,83 @@ http://localhost:3000/api/v1/booklists
 
 See README.md in https://github.com/PatriciaGauntt/BookNest
 
+
+## Testing Strategy
+
+This project uses Jest and Supertest to validate application behavior across multiple layers while maintaining clear separation of concerns.
+
+### Test Coverage Overview
+
+- Unit tests cover:
+
+  - Controllers
+
+  - Services
+
+  - Models
+
+  - Validation and error handling logic
+
+- Route tests verify:
+
+  - HTTP method and path configuration
+
+  - Proper routing to controller methods
+
+  - Expected status codes and response flow
+
+Overall test coverage is approximately 82%, which reflects intentional testing design, not missing tests.
+
+### Unit Testing
+
+Unit tests focus on executing real application logic in isolation.
+
+- Controllers are tested with mocked services
+
+- Services are tested independently of the database
+
+- Models validate schema behavior and data operations
+
+- Error and edge-case paths are explicitly covered where appropriate
+
+- This approach ensures business logic is fully exercised and reliable.
+
+### Route Testing
+
+Route tests are implemented using Supertest and intentionally mock controller methods.
+
+This allows route tests to:
+
+- Confirm endpoint paths and HTTP verbs
+
+- Validate request/response handling
+
+- Avoid duplicate execution of controller and service logic
+
+- Remain fast and deterministic
+
+Because controller logic is mocked during route tests, these tests do not increase code coverage percentages. This behavior is expected and aligns with industry best practices.
+
+### Why Coverage Is Not 100%
+
+Coverage below 100% reflects:
+
+- Defensive guard clauses
+
+- Error-handling branches
+
+- Code paths requiring invalid or malformed input
+
+These paths are intentionally isolated to unit tests rather than route tests to preserve test clarity and maintain separation of concerns.
+
+### Running Tests
+
+To run the full test suite and to generate coverage report:
+```bash
+npm run test 
+```
+
+
 ```
 Directory Tree of Project
 
