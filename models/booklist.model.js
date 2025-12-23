@@ -14,6 +14,9 @@ export class BookListModel {
     // Index ISBN
     collection.createIndex({ isbn: 1 }).catch(console.error);
 
+    // Index for detecting duplicate titles by author
+    collection.createIndex({ title: 1, author_last_name: 1 }, { name: 'idx_title_author' }).catch(console.error);
+
     return collection;
   }
 
@@ -166,7 +169,24 @@ static async replaceBookList(id, bookList) {
 
     return result.modifiedCount > 0;
   }
-  // ============================================================
+  // -------------------------------------------------
+  // CHECK FOR DUPLICATES (title + author_last_name)
+  // -------------------------------------------------
+  static async findPotentialDuplicates(title, author_last_name) {
+    if (!title || !author_last_name) return [];
+
+   return BookListModel.getCollection()
+      .find(
+        {
+          title: { $regex: `^${title}$`, $options: 'i' },
+          author_last_name: { $regex: `^${author_last_name}$`, $options: 'i' }
+        },
+        { projection: { _id: 0, id: 1, title: 1, author_last_name: 1, isbn: 1 } }
+      )
+      .toArray();
+  }
+
+// ============================================================
 // TEST-COMPATIBILITY WRAPPERS
 // ============================================================
 

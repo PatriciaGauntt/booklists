@@ -43,6 +43,9 @@
     "isbn": {
       "type": "string"
     },
+    "edition_note": {
+      "type": "string"
+    },
     "imagePath": {
       "type": "string"
     },

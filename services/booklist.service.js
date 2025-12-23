@@ -15,17 +15,61 @@ export class BookListService {
   // -------------------------------------------------
   // GET ALL BOOKLISTS
   // -------------------------------------------------
-  static getBookLists(searchTerm, skip, limit) {
+  /*static getBookLists(searchTerm, skip, limit) {
     logger.debug('Service : getBookLists');
     return BookListModel.getBookLists(searchTerm, skip, limit);
+  }*/
+  static async getBookLists(searchTerm, skip, limit) {
+    logger.debug('Service : getBookLists');
+
+    const cursor = BookListModel.getBookLists(searchTerm, skip, limit);
+    const books = await cursor.toArray();
+
+    for (const book of books) {
+      if (book.title && book.author_last_name) {
+        const matches = await BookListService.findPotentialDuplicates(
+          book.title,
+          book.author_last_name
+        );
+
+        book.isPotentialDuplicate =
+          matches.filter(m => m.id !== book.id).length > 0;
+      } else {
+        book.isPotentialDuplicate = false;
+      }
+    }
+
+    return books;
   }
 
   // -------------------------------------------------
   // GET ONE BOOKLIST
   // -------------------------------------------------
-  static getBookList(id) {
+  /*static getBookList(id) {
     logger.debug(`Service : getBookList, id: ${id}`);
     return BookListModel.getBookList(id);
+  }*/
+  static async getBookList(id) {
+    logger.debug(`Service : getBookList, id: ${id}`);
+
+    const book = await BookListModel.getBookList(id);
+    if (!book) return null;
+
+  // Find books with same title + author (case-insensitive)
+    const potentialDuplicates = await BookListService.findPotentialDuplicates(
+      book.title,
+      book.author_last_name
+    );
+
+    // Exclude self
+    const duplicatesExcludingSelf = potentialDuplicates.filter(
+      b => b.id !== book.id
+    );
+
+    return {
+      ...book,
+      isPotentialDuplicate: duplicatesExcludingSelf.length > 0
+    };
   }
 
   // -------------------------------------------------
@@ -48,7 +92,7 @@ export class BookListService {
   // -------------------------------------------------
   // CREATE BOOKLIST
   // -------------------------------------------------
-  static createBookList(bookList) {
+  /*static createBookList(bookList) {
     if (!bookList.title || !bookList.title.trim()) {
       const error = new Error('The "title" field cannot be empty or just spaces.');
       error.statusCode = 400;
@@ -75,8 +119,84 @@ export class BookListService {
       throw error;
     }
 
-    logger.debug('Service : createBookList');
-    return BookListModel.createBookList(newBookList);
+    //logger.debug('Service : createBookList');
+    //return BookListModel.createBookList(newBookList);
+  }*/
+
+    // -------------------------------------------------
+// CREATE BOOKLIST
+// -------------------------------------------------
+static async createBookList(bookList) {
+  if (!bookList.title || !bookList.title.trim()) {
+    const error = new Error('The "title" field cannot be empty or just spaces.');
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const fullUuid = uuid();
+
+  const newBookList = {
+    ...bookList,
+    id: fullUuid.slice(0, 6),
+    tracking: {
+      uuid: fullUuid,
+      createdDate: new Date().toISOString()
+    }
+  };
+
+  const valid = validate(newBookList);
+  if (!valid) {
+    logger.warn('Validation error on creating a new book!', validate.errors);
+    const error = new Error("Validation failed on creating book");
+    error.statusCode = 400;
+    error.details = validate.errors;
+    throw error;
+  }
+
+  // Find possible duplicates (ISBN not required)
+  const potentialDuplicates =
+    await BookListService.findPotentialDuplicates(
+      newBookList.title,
+      newBookList.author_last_name
+    );
+
+  logger.debug(
+    `Potential duplicates found: ${potentialDuplicates.length}`
+  );
+
+  // Create the book
+  const createdBook = await BookListModel.createBookList(newBookList);
+
+  // Return both
+  return {
+    book: createdBook,
+    potentialDuplicates
+  };
+}
+
+  // -------------------------------------------------
+  // FIND POTENTIAL DUPLICATES (same title + author)
+  // -------------------------------------------------
+  static async findPotentialDuplicates(title, author_last_name) {
+    if (!title || !author_last_name) return [];
+
+    return BookListModel.getCollection()
+      .find(
+        {
+          title: { $regex: `^${title}$`, $options: 'i' },
+          author_last_name: { $regex: `^${author_last_name}$`, $options: 'i' }
+        },
+        {
+          projection: {
+            _id: 0,
+            id: 1,
+            title: 1,
+            author_last_name: 1,
+            isbn: 1 // OK if missing — MongoDB just omits it
+          }
+        }
+      )
+      .toArray();
   }
 
   // -------------------------------------------------

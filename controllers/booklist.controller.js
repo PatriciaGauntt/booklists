@@ -7,7 +7,7 @@ export class BookListController {
   // ============================================================
   // GET MANY
   // ============================================================
-  static async getBookLists(req, res) {
+  /*static async getBookLists(req, res) {
     logger.debug('Controller : getBookLists');
 
     const searchTerm = req.query.search;
@@ -16,7 +16,18 @@ export class BookListController {
 
     const resultCursor = await BookListService.getBookLists(searchTerm, skip, limit);
     res.status(200).json(await resultCursor.toArray());
-  }
+  }*/
+
+  static async getBookLists(req, res) {
+  logger.debug('Controller : getBookLists');
+
+  const searchTerm = req.query.search;
+  const skip = Number(req.query.skip) || 0;
+  const limit = Number(req.query.limit) || Constants.DEFAULT_LIMIT;
+
+  const books = await BookListService.getBookLists(searchTerm, skip, limit);
+  res.status(200).json(books);
+}
 
   // ============================================================
   // GET ONE
@@ -36,8 +47,15 @@ export class BookListController {
   static async createBookList(req, res) {
     try {
       logger.debug('Controller : createBookList');
-      const result = await BookListService.createBookList(req.body);
-      res.status(201).json(result);
+
+      const { book, potentialDuplicates } =
+        await BookListService.createBookList(req.body);
+
+      res.status(201).json({
+        book,
+        potentialDuplicates
+      });
+
     } catch (err) {
       logger.error(err.message);
       res.status(err.statusCode || 500).json({
