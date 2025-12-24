@@ -110,6 +110,55 @@ describe("BookListController CRUD + comment methods", () => {
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.json).toHaveBeenCalledWith({ error: "Replace error" });
   });
+  // --------------------------------------------------------------
+  // GET MANY
+  // --------------------------------------------------------------
+  test("getBookLists returns 200 with books and query params", async () => {
+    const req = {
+      query: {
+        search: "harry",
+        skip: "10",
+        limit: "5",
+      },
+    };
+
+    const res = mockResponse();
+
+    const books = [{ id: "1", title: "Harry Potter" }];
+
+    BookListService.getBookLists.mockResolvedValue(books);
+
+    await BookListController.getBookLists(req, res);
+
+    expect(BookListService.getBookLists).toHaveBeenCalledWith(
+      "harry",
+      10,
+      5
+   );
+
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith(books);
+  });
+  test("getBookLists uses default skip and limit when not provided", async () => {
+    const req = { query: {} };
+    const res = mockResponse();
+
+    const books = [];
+
+    BookListService.getBookLists.mockResolvedValue(books);
+
+    await BookListController.getBookLists(req, res);
+
+    expect(BookListService.getBookLists).toHaveBeenCalledWith(
+      undefined,
+      0,
+      expect.any(Number) // DEFAULT_LIMIT
+    );
+
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith(books);
+  });
+
 
   // --------------------------------------------------------------
   // DELETE

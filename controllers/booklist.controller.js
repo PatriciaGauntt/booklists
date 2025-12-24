@@ -7,17 +7,6 @@ export class BookListController {
   // ============================================================
   // GET MANY
   // ============================================================
-  /*static async getBookLists(req, res) {
-    logger.debug('Controller : getBookLists');
-
-    const searchTerm = req.query.search;
-    const skip = Number(req.query.skip) || 0;
-    const limit = Number(req.query.limit) || Constants.DEFAULT_LIMIT; 
-
-    const resultCursor = await BookListService.getBookLists(searchTerm, skip, limit);
-    res.status(200).json(await resultCursor.toArray());
-  }*/
-
   static async getBookLists(req, res) {
   logger.debug('Controller : getBookLists');
 
@@ -44,25 +33,25 @@ export class BookListController {
   // ============================================================
   // CREATE
   // ============================================================
+
   static async createBookList(req, res) {
     try {
       logger.debug('Controller : createBookList');
 
-      const { book, potentialDuplicates } =
-        await BookListService.createBookList(req.body);
+      const result = await BookListService.createBookList(req.body);
 
-      res.status(201).json({
-        book,
-        potentialDuplicates
-      });
+      if (result?.book !== undefined) {
+        return res.status(201).json(result);
+      }
+
+      return res.status(201).json(result);
 
     } catch (err) {
       logger.error(err.message);
       res.status(err.statusCode || 500).json({
         error: err.message,
       });
-    }
-  }
+    }}
 
   // ============================================================
   // PATCH — Partial Update

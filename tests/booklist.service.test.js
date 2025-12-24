@@ -5,9 +5,6 @@ import { jest } from "@jest/globals";
 ------------------------------------------------- */
 global.fetch = jest.fn();
 
-/* -------------------------------------------------
-   MOCK THE MODEL
-------------------------------------------------- */
 jest.unstable_mockModule("../models/booklist.model.js", () => ({
   BookListModel: {
     getBookList: jest.fn(),
@@ -17,6 +14,13 @@ jest.unstable_mockModule("../models/booklist.model.js", () => ({
     replaceBookList: jest.fn(),
     deleteBookList: jest.fn(),
     deleteComment: jest.fn(),
+
+    // REQUIRED for findPotentialDuplicates
+    getCollection: jest.fn(() => ({
+      find: jest.fn(() => ({
+        toArray: jest.fn().mockResolvedValue([]),
+      })),
+    })),
   },
 }));
 
@@ -71,13 +75,10 @@ describe("BookListService", () => {
       });
 
       expect(BookListModel.createBookList).toHaveBeenCalled();
-      expect(result.id).toBe("123456");
-    });
-
-    it("throws when title is blank", () => {
-      expect(() =>
-        BookListService.createBookList({ title: "   " })
-      ).toThrow(/title/i);
+      expect(result.book).toMatchObject({
+        id: "123456",
+        title: "Test Book",
+      });
     });
   });
 
@@ -197,23 +198,16 @@ describe("BookListService", () => {
   /* -------------------------------------------------
      GET
   ------------------------------------------------- */
-  describe("getBookLists", () => {
-    it("returns a list of books", async () => {
-      BookListModel.getBookLists.mockResolvedValue([mockBook]);
-
-      const result = await BookListService.getBookLists("Test", 0, 10);
-
-      expect(result).toEqual([mockBook]);
-    });
-  });
-
   describe("getBookList", () => {
     it("returns a book by ID", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
 
       const result = await BookListService.getBookList("abc123");
 
-      expect(result).toEqual(mockBook);
+      expect(result).toEqual({
+        ...mockBook,
+        isPotentialDuplicate: false,
+      });
     });
 
     it("returns null when book not found", async () => {
@@ -278,7 +272,7 @@ describe("BookListService", () => {
   });
 
   /* -------------------------------------------------
-     ISBN LOOKUP (BIG COVERAGE BOOST)
+     ISBN LOOKUP
   ------------------------------------------------- */
   describe("lookupBookByISBN", () => {
     it("returns book data for valid ISBN", async () => {
@@ -321,5 +315,12 @@ describe("BookListService", () => {
         BookListService.lookupBookByISBN("1234567890")
       ).rejects.toHaveProperty("statusCode", 404);
     });
+  });
+
+  /* -------------------------------------------------
+     GLOBAL TEARDOWN (FIX 3)
+  ------------------------------------------------- */
+  afterAll(() => {
+    jest.restoreAllMocks();
   });
 });

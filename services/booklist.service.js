@@ -15,10 +15,6 @@ export class BookListService {
   // -------------------------------------------------
   // GET ALL BOOKLISTS
   // -------------------------------------------------
-  /*static getBookLists(searchTerm, skip, limit) {
-    logger.debug('Service : getBookLists');
-    return BookListModel.getBookLists(searchTerm, skip, limit);
-  }*/
   static async getBookLists(searchTerm, skip, limit) {
     logger.debug('Service : getBookLists');
 
@@ -45,10 +41,6 @@ export class BookListService {
   // -------------------------------------------------
   // GET ONE BOOKLIST
   // -------------------------------------------------
-  /*static getBookList(id) {
-    logger.debug(`Service : getBookList, id: ${id}`);
-    return BookListModel.getBookList(id);
-  }*/
   static async getBookList(id) {
     logger.debug(`Service : getBookList, id: ${id}`);
 
@@ -89,43 +81,10 @@ export class BookListService {
     return book.comments || [];
   }
 
-  // -------------------------------------------------
-  // CREATE BOOKLIST
-  // -------------------------------------------------
-  /*static createBookList(bookList) {
-    if (!bookList.title || !bookList.title.trim()) {
-      const error = new Error('The "title" field cannot be empty or just spaces.');
-      error.statusCode = 400;
-      throw error;
-    }
-
-    const fullUuid = uuid();
-
-    const newBookList = {
-      ...bookList,
-      id: fullUuid.slice(0, 6),
-      tracking: {
-        uuid: fullUuid,
-        createdDate: new Date().toISOString()
-      }
-    };
-
-    const valid = validate(newBookList);
-    if (!valid) {
-      logger.warn('Validation error on creating a new book!', validate.errors);
-      const error = new Error("Validation failed on creating book");
-      error.statusCode = 400;
-      error.details = validate.errors;
-      throw error;
-    }
-
-    //logger.debug('Service : createBookList');
-    //return BookListModel.createBookList(newBookList);
-  }*/
-
-    // -------------------------------------------------
+// -------------------------------------------------
 // CREATE BOOKLIST
 // -------------------------------------------------
+
 static async createBookList(bookList) {
   if (!bookList.title || !bookList.title.trim()) {
     const error = new Error('The "title" field cannot be empty or just spaces.');
@@ -135,6 +94,7 @@ static async createBookList(bookList) {
 
   const fullUuid = uuid();
 
+  
   const newBookList = {
     ...bookList,
     id: fullUuid.slice(0, 6),
@@ -192,7 +152,7 @@ static async createBookList(bookList) {
             id: 1,
             title: 1,
             author_last_name: 1,
-            isbn: 1 // OK if missing — MongoDB just omits it
+            isbn: 1 
           }
         }
       )
@@ -434,6 +394,7 @@ static async createBookList(bookList) {
         ? parseInt(volumeInfo.publishedDate.slice(0, 4), 10)
         : null,
       series_name: '',
+      edition_note: '',
       imagePath:
         volumeInfo.imageLinks?.thumbnail
           || `https://covers.openlibrary.org/b/isbn/${normalizedIsbn}-L.jpg`

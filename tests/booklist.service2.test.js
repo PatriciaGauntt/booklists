@@ -1,8 +1,13 @@
 import { jest } from "@jest/globals";
 
-// -------------------------------------------------
-// MOCK MODEL (ESM-safe)
-// -------------------------------------------------
+/* -------------------------------------------------
+   GLOBAL FETCH MOCK
+------------------------------------------------- */
+global.fetch = jest.fn();
+
+/* -------------------------------------------------
+   MOCK MODEL (ESM-safe)
+------------------------------------------------- */
 jest.unstable_mockModule("../models/booklist.model.js", () => ({
   BookListModel: {
     getBookList: jest.fn(),
@@ -15,31 +20,33 @@ jest.unstable_mockModule("../models/booklist.model.js", () => ({
   },
 }));
 
-// IMPORT AFTER MOCKING
+/* -------------------------------------------------
+   IMPORT AFTER MOCKING
+------------------------------------------------- */
 const { BookListService } = await import("../services/booklist.service.js");
 const { BookListModel } = await import("../models/booklist.model.js");
 
-// -------------------------------------------------
-// TESTS
-// -------------------------------------------------
+/* -------------------------------------------------
+   TESTS
+------------------------------------------------- */
 describe("BookListService coverage boost", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  // -------------------------------------------------
-  // CREATE
-  // -------------------------------------------------
-  test("createBookList throws 400 when title is empty", () => {
-    expect(() =>
+  /* -------------------------------------------------
+     CREATE — validation failure
+  ------------------------------------------------- */
+  test("createBookList throws 400 when title is empty", async () => {
+    await expect(
       BookListService.createBookList({ title: "   " })
-    ).toThrow(/title/i);
+    ).rejects.toHaveProperty("statusCode", 400);
   });
 
-  // -------------------------------------------------
-  // UPDATE — validation failure
-  // -------------------------------------------------
+  /* -------------------------------------------------
+     UPDATE — validation failure
+  ------------------------------------------------- */
   test("updateBookList throws 400 on validation failure", async () => {
     BookListModel.getBookList.mockResolvedValue({
       id: "123",
@@ -53,9 +60,9 @@ describe("BookListService coverage boost", () => {
     ).rejects.toHaveProperty("statusCode", 400);
   });
 
-  // -------------------------------------------------
-  // GET COMMENTS — not found
-  // -------------------------------------------------
+  /* -------------------------------------------------
+     GET COMMENTS — not found
+  ------------------------------------------------- */
   test("getComments throws 404 when book not found", async () => {
     BookListModel.getBookList.mockResolvedValue(null);
 
@@ -64,13 +71,12 @@ describe("BookListService coverage boost", () => {
     ).rejects.toHaveProperty("statusCode", 404);
   });
 
-  // -------------------------------------------------
-  // ISBN — invalid format
-  // -------------------------------------------------
+  /* -------------------------------------------------
+     ISBN — invalid format
+  ------------------------------------------------- */
   test("lookupBookByISBN throws 400 for invalid ISBN format", async () => {
     await expect(
       BookListService.lookupBookByISBN("BADISBN")
     ).rejects.toHaveProperty("statusCode", 400);
   });
 });
-

@@ -87,6 +87,42 @@ const sample = {
     expect(updated).toBeNull();
   });
 
+  test("findPotentialDuplicates returns empty array when title or author missing", async () => {
+    const result1 = await BookListModel.findPotentialDuplicates(null, "Doe");
+    const result2 = await BookListModel.findPotentialDuplicates("Test Book", null);
+
+    expect(result1).toEqual([]);
+    expect(result2).toEqual([]);
+  });
+
+  test("findPotentialDuplicates finds matching books by title and author (case-insensitive)", async () => {
+  const book = {
+    id: "dup123",
+    title: "The Hobbit",
+    author_last_name: "Tolkien",
+    isbn: "9780261103344",
+    comments: [],
+    tracking: {}
+  };
+
+  // Insert a book directly
+  await BookListModel.insertOne(book);
+
+  const results = await BookListModel.findPotentialDuplicates(
+    "the hobbit",
+    "tolkien"
+  );
+
+  expect(results.length).toBe(1);
+  expect(results[0]).toMatchObject({
+    id: "dup123",
+    title: "The Hobbit",
+    author_last_name: "Tolkien",
+    isbn: "9780261103344",
+  });
+});
+
+
 test("replaceOne: replaces book entirely", async () => {
   await BookListModel.createBookList({
   id: "123",
