@@ -14,9 +14,6 @@ export class BookListModel {
     // Index ISBN
     collection.createIndex({ isbn: 1 }).catch(console.error);
 
-    // Index for detecting duplicate titles by author
-    collection.createIndex({ title: 1, author_last_name: 1 }, { name: 'idx_title_author' }).catch(console.error);
-
     return collection;
   }
 

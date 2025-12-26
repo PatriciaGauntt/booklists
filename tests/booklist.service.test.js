@@ -41,6 +41,7 @@ const mockBook = {
   series_name: "Series",
   imagePath: "/img/test.jpg",
   comments: [],
+  isPotentialDuplicate: false,
   tracking: {
     uuid: "11111111-1111-1111-1111-111111111111",
     createdDate: "2024-01-01T00:00:00.000Z",
@@ -74,11 +75,22 @@ describe("BookListService", () => {
         location: "Shelf A",
       });
 
+
+
       expect(BookListModel.createBookList).toHaveBeenCalled();
       expect(result.book).toMatchObject({
         id: "123456",
         title: "Test Book",
       });
+    });
+
+    it("throws 400 when schema validation fails on create", async () => {
+      await expect(
+        BookListService.createBookList({
+          title: "Valid Title",
+          publication_year: "not-a-number" // schema violation
+        })
+      ).rejects.toHaveProperty("statusCode", 400);
     });
   });
 
@@ -108,6 +120,16 @@ describe("BookListService", () => {
       ).rejects.toThrow("not found");
     });
 
+    it("throws 400 when schema validation fails on update", async () => {
+      BookListModel.getBookList.mockResolvedValue(mockBook);
+
+      await expect(
+        BookListService.updateBookList("abc123", {
+          publication_year: "bad"
+        })
+      ).rejects.toHaveProperty("statusCode", 400);
+    });
+
     it("throws if title empty", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
 
@@ -134,6 +156,16 @@ describe("BookListService", () => {
 
       expect(result.title).toBe("Replaced");
     });
+
+    it("throws 400 when schema validation fails on replace", async () => {
+      BookListModel.getBookList.mockResolvedValue(mockBook);
+
+      await expect(
+        BookListService.replaceBookList("abc123", {
+        publication_year: "bad"
+        })
+      ).rejects.toHaveProperty("statusCode", 400);
+    });    
 
     it("throws if title empty", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
@@ -178,6 +210,19 @@ describe("BookListService", () => {
       expect(result.comments.length).toBe(1);
     });
 
+    it("throws 400 when updated book fails schema validation after comment", async () => {
+      BookListModel.getBookList.mockResolvedValue({
+        ...mockBook,
+        publication_year: "bad" // already invalid
+      });
+
+      await expect(
+        BookListService.addComment("abc123", {
+          comment: "Nice book"
+        })
+      ).rejects.toHaveProperty("statusCode", 400);
+    });
+
     it("throws for invalid comment", async () => {
       BookListModel.getBookList.mockResolvedValue(mockBook);
 
@@ -196,7 +241,43 @@ describe("BookListService", () => {
   });
 
   /* -------------------------------------------------
-     GET
+   GET ALL
+------------------------------------------------- */
+describe("getBookLists", () => {
+  it("returns an array of books", async () => {
+    const mockCursor = {
+      toArray: jest.fn().mockResolvedValue([
+        { ...mockBook },
+        { ...mockBook, id: "def456", title: "Another Book" },
+      ]),
+    };
+
+    BookListModel.getBookLists.mockReturnValue(mockCursor);
+
+    const result = await BookListService.getBookLists("test", 0, 10);
+
+    expect(BookListModel.getBookLists).toHaveBeenCalledWith("test", 0, 10);
+    expect(mockCursor.toArray).toHaveBeenCalled();
+    expect(result).toHaveLength(2);
+    expect(result[0].title).toBe("Test Book");
+  });
+
+  it("returns an empty array when no books found", async () => {
+    const mockCursor = {
+      toArray: jest.fn().mockResolvedValue([]),
+    };
+
+    BookListModel.getBookLists.mockReturnValue(mockCursor);
+
+    const result = await BookListService.getBookLists("", 0, 10);
+
+    expect(result).toEqual([]);
+  });
+});
+
+
+  /* -------------------------------------------------
+     GET ONE
   ------------------------------------------------- */
   describe("getBookList", () => {
     it("returns a book by ID", async () => {
@@ -218,6 +299,10 @@ describe("BookListService", () => {
       expect(result).toBeNull();
     });
   });
+
+    /* -------------------------------------------------
+     GET COMMENTS
+  ------------------------------------------------- */
 
   describe("getComments", () => {
     it("returns comments array", async () => {
@@ -243,23 +328,80 @@ describe("BookListService", () => {
   /* -------------------------------------------------
      DELETE
   ------------------------------------------------- */
-  describe("deleteBookList", () => {
-    it("deletes a book", async () => {
-      BookListModel.deleteBookList.mockResolvedValue(true);
+describe("deleteBookList", () => {
+  it("deletes a book", async () => {
+    BookListModel.getBookList.mockResolvedValue(mockBook); 
+    BookListModel.deleteBookList.mockResolvedValue(true);
 
-      const result = await BookListService.deleteBookList("abc123");
+    const result = await BookListService.deleteBookList("abc123");
 
-      expect(result).toEqual({ deleted: true });
-    });
-
-    it("throws if book not found", async () => {
-      BookListModel.deleteBookList.mockResolvedValue(false);
-
-      await expect(
-        BookListService.deleteBookList("bad-id")
-      ).rejects.toHaveProperty("statusCode", 404);
-    });
+    expect(result).toEqual({ deleted: true });
   });
+
+  it("skips duplicate recompute when title or author missing", async () => {
+    BookListModel.getBookList.mockResolvedValue({
+      ...mockBook,
+      author_last_name: null
+    });
+
+    BookListModel.deleteBookList.mockResolvedValue(true);
+
+    const result = await BookListService.deleteBookList("abc123");
+
+    expect(BookListModel.updateBookList).not.toHaveBeenCalled();
+    expect(result).toEqual({ deleted: true });
+  });
+
+  it("recomputes isPotentialDuplicate for remaining books", async () => {
+  const deletedBook = {
+    ...mockBook,
+    title: "Same Title",
+    author_last_name: "Doe",
+  };
+
+  const remainingBooks = [
+    { id: "b1", title: "Same Title", author_last_name: "Doe" },
+    { id: "b2", title: "Same Title", author_last_name: "Doe" },
+  ];
+
+  BookListModel.getBookList.mockResolvedValue(deletedBook);
+  BookListModel.deleteBookList.mockResolvedValue(true);
+
+
+  BookListService.findPotentialDuplicates = jest
+    .fn()
+    .mockResolvedValueOnce(remainingBooks) // after delete
+    .mockResolvedValueOnce([remainingBooks[1]]) // b1 has duplicate
+    .mockResolvedValueOnce([]); // b2 has no duplicates
+
+  BookListModel.updateBookList.mockResolvedValue(true);
+
+  const result = await BookListService.deleteBookList("abc123");
+
+  expect(BookListModel.updateBookList).toHaveBeenCalledTimes(2);
+  expect(BookListModel.updateBookList).toHaveBeenCalledWith("b1", {
+    isPotentialDuplicate: true,
+  });
+  expect(BookListModel.updateBookList).toHaveBeenCalledWith("b2", {
+    isPotentialDuplicate: false,
+  });
+
+  expect(result).toEqual({ deleted: true });
+});
+
+
+  it("throws if book not found", async () => {
+    BookListModel.getBookList.mockResolvedValue(null); // ✅ THIS is what triggers 404
+
+    await expect(
+      BookListService.deleteBookList("bad-id")
+    ).rejects.toHaveProperty("statusCode", 404);
+  });
+});
+
+  /* -------------------------------------------------
+     DELETE COMMENT
+  ------------------------------------------------- */
 
   describe("deleteComment", () => {
     it("deletes a comment", async () => {
@@ -303,6 +445,14 @@ describe("BookListService", () => {
       await expect(
         BookListService.lookupBookByISBN("bad")
       ).rejects.toHaveProperty("statusCode", 400);
+    });
+
+    it("throws 502 when Google Books API responds with error", async () => {
+      fetch.mockResolvedValue({ ok: false });
+
+      await expect(
+        BookListService.lookupBookByISBN("1234567890")
+      ).rejects.toHaveProperty("statusCode", 502);
     });
 
     it("throws when no book found", async () => {

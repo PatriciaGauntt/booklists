@@ -46,6 +46,10 @@
     "edition_note": {
       "type": "string"
     },
+    "isPotentialDuplicate": {
+      "type": "boolean",
+      "description": "Indicates whether the book has a duplicate based on title and author_last_name."
+    },
     "imagePath": {
       "type": "string"
     },

@@ -157,8 +157,12 @@ booklists
 ├─ package-lock.json
 ├─ package.json
 ├─ README.md
+├─ routes
+│  └─ booklist.routes.json
 ├─ schemas
 │  └─ booklist.json
+├─ scripts
+│  └─ backfill.duplicates.json
 ├─ server.js
 ├─ services
 │  └─ booklist.service.js
@@ -187,3 +191,9 @@ mongoimport --db booklists --collection booklists --file ./data/booklists-data.j
 ```
 
 This is optional—your API works without it—but importing it will give your Angular BookNest frontend a complete set of example titles to browse, edit, and search.
+
+After loading your sample json data, you may want to run the following script to populate the isPotentialDuplicate boolean. This boolean is used in the frontend to flag potential books with multiple editions as well as duplicate copies.
+```bash
+node scripts/backfill.duplicates.js
+```
+

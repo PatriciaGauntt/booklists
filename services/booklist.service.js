@@ -19,51 +19,17 @@ export class BookListService {
     logger.debug('Service : getBookLists');
 
     const cursor = BookListModel.getBookLists(searchTerm, skip, limit);
-    const books = await cursor.toArray();
-
-    for (const book of books) {
-      if (book.title && book.author_last_name) {
-        const matches = await BookListService.findPotentialDuplicates(
-          book.title,
-          book.author_last_name
-        );
-
-        book.isPotentialDuplicate =
-          matches.filter(m => m.id !== book.id).length > 0;
-      } else {
-        book.isPotentialDuplicate = false;
-      }
-    }
-
-    return books;
+    return await cursor.toArray(); 
   }
+
 
   // -------------------------------------------------
   // GET ONE BOOKLIST
   // -------------------------------------------------
   static async getBookList(id) {
     logger.debug(`Service : getBookList, id: ${id}`);
-
-    const book = await BookListModel.getBookList(id);
-    if (!book) return null;
-
-  // Find books with same title + author (case-insensitive)
-    const potentialDuplicates = await BookListService.findPotentialDuplicates(
-      book.title,
-      book.author_last_name
-    );
-
-    // Exclude self
-    const duplicatesExcludingSelf = potentialDuplicates.filter(
-      b => b.id !== book.id
-    );
-
-    return {
-      ...book,
-      isPotentialDuplicate: duplicatesExcludingSelf.length > 0
-    };
+    return await BookListModel.getBookList(id);
   }
-
   // -------------------------------------------------
   // GET COMMENTS
   // -------------------------------------------------
@@ -84,7 +50,6 @@ export class BookListService {
 // -------------------------------------------------
 // CREATE BOOKLIST
 // -------------------------------------------------
-
 static async createBookList(bookList) {
   if (!bookList.title || !bookList.title.trim()) {
     const error = new Error('The "title" field cannot be empty or just spaces.');
@@ -94,10 +59,17 @@ static async createBookList(bookList) {
 
   const fullUuid = uuid();
 
-  
+  // Find possible duplicates
+  const potentialDuplicates =
+    await BookListService.findPotentialDuplicates(
+      bookList.title,
+      bookList.author_last_name
+    );
+
   const newBookList = {
     ...bookList,
     id: fullUuid.slice(0, 6),
+    isPotentialDuplicate: potentialDuplicates.length > 0,
     tracking: {
       uuid: fullUuid,
       createdDate: new Date().toISOString()
@@ -107,32 +79,20 @@ static async createBookList(bookList) {
   const valid = validate(newBookList);
   if (!valid) {
     logger.warn('Validation error on creating a new book!', validate.errors);
-    const error = new Error("Validation failed on creating book");
+    const error = new Error('Validation failed on creating book');
     error.statusCode = 400;
     error.details = validate.errors;
     throw error;
   }
 
-  // Find possible duplicates (ISBN not required)
-  const potentialDuplicates =
-    await BookListService.findPotentialDuplicates(
-      newBookList.title,
-      newBookList.author_last_name
-    );
-
-  logger.debug(
-    `Potential duplicates found: ${potentialDuplicates.length}`
-  );
-
-  // Create the book
   const createdBook = await BookListModel.createBookList(newBookList);
 
-  // Return both
   return {
     book: createdBook,
-    potentialDuplicates
+    potentialDuplicates 
   };
 }
+
 
   // -------------------------------------------------
   // FIND POTENTIAL DUPLICATES (same title + author)
@@ -163,97 +123,133 @@ static async createBookList(bookList) {
   // UPDATE BOOKLIST (PATCH)
   // -------------------------------------------------
   static async updateBookList(id, bookList) {
+    const existing = await BookListModel.getBookList(id);
+    if (!existing) {
+      const err = new Error(`Book with ${id} not found`);
+      err.statusCode = 404;
+      throw err;
+    }
+
+    const patch = { ...bookList };
+
     if (bookList.title !== undefined && !bookList.title.trim()) {
-      const error = new Error('The "title" field cannot be empty or just spaces.');
-      error.statusCode = 400;
-      throw error;
+      const err = new Error('The "title" field cannot be empty or just spaces.');
+      err.statusCode = 400;
+      throw err;
+    } 
+
+    if (
+      bookList.title !== undefined ||
+      bookList.author_last_name !== undefined
+    ) {
+      const title = bookList.title ?? existing.title;
+      const author = bookList.author_last_name ?? existing.author_last_name;
+
+      const matches = await BookListService.findPotentialDuplicates(title, author);
+      patch.isPotentialDuplicate = matches.some(b => b.id !== id);
     }
 
-    const existingBookList = await BookListModel.getBookList(id);
-
-    if (!existingBookList) {
-      const error = new Error(`Book with ${id} not found`);
-      error.statusCode = 404;
-      throw error;
-    }
-
-    const updatedBookList = {
-      ...existingBookList,
-      ...bookList,
-      id,
-      tracking: {
-        ...existingBookList.tracking,
-        updatedDate: new Date().toISOString()
-      },
+    // Always update tracking on PATCH
+    patch.tracking = {
+      ...existing.tracking,
+      updatedDate: new Date().toISOString()
     };
 
-    const valid = validate(updatedBookList);
+    const valid = validate({ ...existing, ...patch });
     if (!valid) {
-      logger.warn('Validation error on updating a book!', validate.errors);
-      const error = new Error("Validation failed on updating book");
-      error.statusCode = 400;
-      error.details = validate.errors;
-      throw error;
+      const err = new Error("Validation failed on updating book");
+      err.statusCode = 400;
+      err.details = validate.errors;
+      throw err;
     }
 
-    logger.debug(`Service : updateBookList, id: ${id}`);
-    return BookListModel.updateBookList(id, updatedBookList);
+    return BookListModel.updateBookList(id, patch);
   }
 
-  // -------------------------------------------------
-  // REPLACE BOOKLIST (PUT)
-  // -------------------------------------------------
+// -------------------------------------------------
+// REPLACE BOOKLIST (PUT)
+// -------------------------------------------------
   static async replaceBookList(id, bookList) {
-    if (bookList.title !== undefined && !bookList.title.trim()) {
-      const error = new Error('The "title" field cannot be empty or just spaces.');
-      error.statusCode = 400;
-      throw error;
+    const existing = await BookListModel.getBookList(id);
+
+    if (!existing) {
+      const err = new Error(`Book with ${id} not found`);
+      err.statusCode = 404;
+      throw err;
     }
 
-    const existingBookList = await BookListModel.getBookList(id);
-
-    if (!existingBookList) {
-      const error = new Error(`Book with ${id} not found`);
-      error.statusCode = 404;
-      throw error;
-    }
-
-    const replacedBookList = {
-      ...existingBookList,
+  // Merge first
+    const merged = {
+      ...existing,
       ...bookList,
       id,
       tracking: {
-        ...existingBookList.tracking,
+        ...existing.tracking,
         updatedDate: new Date().toISOString()
       }
     };
 
-    const valid = validate(replacedBookList);
+  // Validate AFTER merge
+    if (!merged.title || !merged.title.trim()) {
+      const err = new Error('The "title" field cannot be empty or just spaces.');
+      err.statusCode = 400;
+      throw err;
+    }
+
+  // Recompute duplicates
+    const matches = await BookListService.findPotentialDuplicates(
+      merged.title,
+      merged.author_last_name
+    );
+
+    merged.isPotentialDuplicate =
+      matches.some(b => b.id !== id);
+
+    const valid = validate(merged);
     if (!valid) {
       logger.warn('Validation error on replacing a book!', validate.errors);
-      const error = new Error("Validation failed on replacing book");
-      error.statusCode = 400;
-      error.details = validate.errors;
-      throw error;
+      const err = new Error("Validation failed on replacing book");
+      err.statusCode = 400;
+      err.details = validate.errors;
+      throw err;
     }
 
     logger.debug(`Service : replaceBookList, id: ${id}`);
-    return BookListModel.replaceBookList(id, replacedBookList);
+    return BookListModel.replaceBookList(id, merged);
   }
 
   // -------------------------------------------------
   // DELETE BOOKLIST
   // -------------------------------------------------
-
   static async deleteBookList(id) {
     logger.debug(`Service : deleteBookList, id: ${id}`);
 
-      const deleted = await BookListModel.deleteBookList(id);
-
-    if (!deleted) {
+    const book = await BookListModel.getBookList(id);
+    if (!book) {
       const err = new Error(`Book with id ${id} not found`);
       err.statusCode = 404;
       throw err;
+    }
+
+    await BookListModel.deleteBookList(id);
+
+  // Recompute duplicates for remaining books
+    if (book.title && book.author_last_name) {
+      const remaining = await BookListService.findPotentialDuplicates(
+        book.title,
+        book.author_last_name
+      );
+
+      for (const b of remaining) {
+        const matches = await BookListService.findPotentialDuplicates(
+          b.title,
+          b.author_last_name
+        );
+
+        await BookListModel.updateBookList(b.id, {
+          isPotentialDuplicate: matches.filter(m => m.id !== b.id).length > 0
+        });
+      }
     }
 
     return { deleted: true };
