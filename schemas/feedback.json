@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://my-app-domain/schemas/feedback",
+  "title": "Feedback",
+  "description": "Schema definition for a BookNest feedback record",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "message",
+    "createdDate",
+    "uuid"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Application-specific identifier derived from the first six bytes of the feedback's UUID."
+    },
+    "type": {
+      "type": "string",
+      "description": "The category of feedback (e.g., idea, bug, improvement)."
+    },
+    "message": {
+      "type": "string",
+      "description": "The feedback message text."
+    },
+    "createdDate": {
+        "type": "string",
+        "description": "The date the message record was created in BookNest."
+    },
+    "uuid": {
+        "type": "string",
+        "format": "uuid",
+        "description": "Universally unique identifier (UUID) assigned to the feedback message."
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "http://my-app-domain/schemas/booklist",
   "title": "BookList",
-  "description": "Book List Schema Document",
+  "description": "Schema definition for a BookNest book record",
   "type": "object",
   "required": [
     "id",
@@ -14,71 +14,97 @@
   "additionalProperties": false,
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "description": "Application-specific identifier derived from the first six bytes of the book's UUID."
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "description": "The book's title"
     },
     "author_first_name": {
-      "type": "string"
+      "type": "string",
+      "description": "The author's first name."
     },
     "author_last_name": {
-      "type": "string"
+      "type": "string",
+      "description": "The author's last name."
     },
     "publication_year": {
-      "type": "number"
+      "type": "number",
+      "description": "The year the book was published. This may represent either the first edition or the specific edition owned."
     },
     "series_name": {
-      "type": "string"
+      "type": "string",
+      "description": "The name of the series the book belongs to, if applicable."
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "description": "The room or general area within the Nest where the book is located."
     },
     "bookcase": {
-      "type": "number"
+      "type": "number",
+      "description": "The bookcase number where the book is stored. Defaults to 0 if the book is not assigned to a bookcase."
     },
     "bookshelf": {
-      "type": "number"
+      "type": "number",
+      "description": "The shelf number within the bookcase. Defaults to 0 if the book is not assigned to a specific shelf."
     },
     "isbn": {
-      "type": "string"
+      "type": "string",
+      "description": "The ISBN of the book, used primarily for ISBN-based lookup during book creation."
     },
     "edition_note": {
-      "type": "string"
+      "type": "string",
+      "description": "Notes describing the book’s edition (e.g., special edition, printing details)."
     },
     "isPotentialDuplicate": {
       "type": "boolean",
-      "description": "Indicates whether the book has a duplicate based on title and author_last_name."
+      "description": "Indicates whether the book may be a duplicate based on matching title and author last name."
     },
     "imagePath": {
-      "type": "string"
+      "type": "string",
+      "description": "Path or URL to an image of the book, either user-provided or retrieved via ISBN lookup."
     },
     "tracking": {
         "type": "object",
         "properties": {
             "uuid": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Universally unique identifier (UUID) assigned to the book."
         },
             "createdDate": {
-                "type": "string"
+                "type": "string",
+                "description": "The date the book record was created in BookNest."
         },
             "updatedDate": {
-                "type": "string"
+                "type": "string",
+                "description": "The most recent date the book record was updated in BookNest."
         }
         }
     },
     "comments": {
       "type": "array",
+      "description": "A collection of user-added comments associated with the book.",
       "items": {
         "type": "object",
           "properties": {
-            "name": { "type": "string" },
-            "comment": { "type": "string" },
-            "commentDate": { "type": "string" },
+            "name": { 
+              "type": "string",
+              "description": "The name of the user who added the comment."
+            },
+            "comment": { 
+              "type": "string",
+              "description": "The comment text."
+            },
+            "commentDate": { 
+              "type": "string",
+              "description": "The date the comment was added."
+            },
             "commentId": { 
               "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "description": "Unique identifier for the comment."
             }
           }
       }
