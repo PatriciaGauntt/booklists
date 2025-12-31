@@ -140,7 +140,7 @@ static async deleteComment(req, res) {
 
     res.json({ message: 'Comment deleted' });
   } catch (err) {
-    console.error('Error deleting comment:', err);
+    logger.error(`Error deleting comment:, ${err.message}`);
     res.status(500).json({ message: 'Server error deleting comment' });
   }
 }
