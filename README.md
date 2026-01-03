@@ -128,6 +128,10 @@ To run the full test suite and to generate coverage report:
 ```bash
 npm run test 
 ```
+The results of this test: 
+```bash
+tests/test.results.txt 
+```
 
 
 ```
@@ -172,7 +176,7 @@ booklists
 │  └─ booklist.service.js
 │  └─ feedback.service.js
 └─ tests
-
+   └─ test.results.txt
 ```
 
 📁 Sample Data Folder (/data)

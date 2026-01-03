@@ -1,0 +1,236 @@
+
+> booklists@0.0.1 test
+> node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --coverage
+
+{"level":"error","message":"Boom","service":"booklists-api"}
+{"level":"error","message":"Validation failed","service":"booklists-api"}
+{"level":"error","message":"Not found","service":"booklists-api"}
+{"level":"error","message":"Update error","service":"booklists-api"}
+{"level":"error","message":"Error replacing Book: Replace error","service":"booklists-api"}
+(node:90344) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/feedback.controller.test.js
+  FeedbackController
+    getAllFeedback
+      √ returns 200 with feedback list (20 ms)
+    getFeedbackById
+      √ returns 200 when feedback exists (2 ms)
+      √ returns 404 when feedback not found (3 ms)
+    createFeedback
+      √ returns 201 on success (2 ms)
+      √ returns 400 on validation error (3 ms)
+    deleteFeedback
+      √ returns 204 on successful delete (2 ms)
+      √ returns 404 when feedback not found (3 ms)
+
+{"level":"error","message":"Invalid ISBN","service":"booklists-api"}
+{"level":"error","message":"No book found","service":"booklists-api"}
+{"level":"error","message":"Unexpected failure","service":"booklists-api"}
+{"level":"error","message":"Error deleting comment:, DB error","service":"booklists-api"}
+(node:38052) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:115372) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98244) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/booklist.controller.isbn.test.js
+  BookListController.lookupBookByISBN
+    √ returns 200 with book data on success (13 ms)
+    √ returns 400 when service throws validation error (4 ms)
+    √ returns 404 when book not found (3 ms)
+    √ returns 500 when service throws without statusCode (2 ms)
+
+PASS tests/feedback.model.test.js
+  FeedbackModel
+    √ getCollection returns feedback collection (11 ms)
+    getAllFeedback
+      √ returns sorted cursor (23 ms)
+    getFeedbackById
+      √ returns feedback when found (5 ms)
+      √ returns null when not found (2 ms)
+    createFeedback
+      √ inserts and returns feedback (3 ms)
+    deleteFeedback
+      √ returns true when deleted (2 ms)
+      √ returns false when nothing deleted (2 ms)
+    legacy wrappers
+      √ insertOne calls createFeedback (1 ms)
+      √ findOne calls getFeedbackById (2 ms)
+      √ deleteOne calls deleteFeedback (1 ms)
+
+PASS tests/booklist.controller2.test.js
+  BookListController CRUD + comment methods
+    √ createBookList returns 201 with created object (20 ms)
+    √ createBookList returns 500 on error (3 ms)
+    √ updateBookList returns 200 with updated data (1 ms)
+    √ updateBookList returns 500 on service error (3 ms)
+    √ replaceBookList returns 200 with replaced object (3 ms)
+    √ replaceBookList returns 500 on error (3 ms)
+    √ getBookLists returns 200 with books and query params (1 ms)
+    √ getBookLists uses default skip and limit when not provided (1 ms)
+    √ deleteBookList returns 204 when deleted (2 ms)
+    √ deleteBookList returns 404 when not found (1 ms)
+    √ addComment returns 200 with updated book (2 ms)
+    √ addComment calls next on error (1 ms)
+    √ deleteComment returns success JSON (1 ms)
+    √ deleteComment returns 404 if book or comment missing (1 ms)
+    √ deleteComment returns 500 on error (1 ms)
+
+(node:117492) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/booklist.service2.test.js
+  BookListService coverage boost
+    √ createBookList throws 400 when title is empty (10 ms)
+    √ updateBookList throws 400 on validation failure (2 ms)
+    √ getComments throws 404 when book not found (8 ms)
+    √ lookupBookByISBN throws 400 for invalid ISBN format (1 ms)
+
+{"level":"warn","message":"Validation error on creating a new book!","service":"booklists-api"}
+{"level":"warn","message":"Validation error on creating feedback!","service":"booklists-api"}
+(node:115056) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/feedback.service.test.js
+  FeedbackService
+    getAllFeedback
+      √ returns all feedback entries (17 ms)
+    getFeedbackById
+      √ returns feedback when found (2 ms)
+      √ returns null when feedback not found (2 ms)
+    createFeedback
+      √ creates feedback with valid data (65 ms)
+      √ throws 400 when validation fails (4 ms)
+    deleteFeedback
+      √ deletes feedback when it exists (1 ms)
+      √ throws 404 when feedback does not exist (1 ms)
+
+{"level":"warn","message":"Validation error on replacing a book!","service":"booklists-api"}
+{"level":"warn","message":"Validation error on adding comment!","service":"booklists-api"}
+(node:113916) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39768) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:118408) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/booklist.service.test.js
+  BookListService
+    createBookList
+      √ creates a new book with valid data (71 ms)
+      √ throws 400 when schema validation fails on create (7 ms)
+    updateBookList
+      √ updates a book (1 ms)
+      √ throws if book not found (22 ms)
+      √ throws 400 when schema validation fails on update (1 ms)
+      √ throws if title empty (1 ms)
+    replaceBookList
+      √ replaces a book (2 ms)
+      √ throws 400 when schema validation fails on replace (2 ms)
+      √ throws if title empty (2 ms)
+      √ throws if book not found (2 ms)
+    addComment
+      √ adds a comment (2 ms)
+      √ throws 400 when updated book fails schema validation after comment (2 ms)
+      √ throws for invalid comment (3 ms)
+      √ throws if book not found (1 ms)
+    getBookLists
+      √ returns an array of books (1 ms)
+      √ returns an empty array when no books found
+    getBookList
+      √ returns a book by ID (1 ms)
+      √ returns null when book not found (1 ms)
+    getComments
+      √ returns comments array (1 ms)
+      √ throws if book not found (1 ms)
+    deleteBookList
+      √ deletes a book (1 ms)
+      √ skips duplicate recompute when title or author missing (1 ms)
+      √ recomputes isPotentialDuplicate for remaining books (1 ms)
+      √ throws if book not found
+    deleteComment
+      √ deletes a comment (1 ms)
+    lookupBookByISBN
+      √ returns book data for valid ISBN (2 ms)
+      √ throws for invalid ISBN (1 ms)
+      √ throws 502 when Google Books API responds with error (1 ms)
+      √ throws when no book found (1 ms)
+
+PASS tests/sanity.test.js
+  √ Jest is working (3 ms)
+
+PASS tests/feedback.routes.test.js
+  Feedback Routes
+    √ GET /feedback → returns all feedback (43 ms)
+    √ GET /feedback/:id → returns feedback by id (9 ms)
+    √ POST /feedback → creates feedback (20 ms)
+    √ DELETE /feedback/:id → deletes feedback (7 ms)
+
+PASS tests/booklist.routes.test.js
+  BookList Routes
+    √ GET /api/v1/booklists (37 ms)
+    √ GET /api/v1/booklists/:id (8 ms)
+    √ POST /api/v1/booklists (23 ms)
+    √ PATCH /api/v1/booklists/:id (4 ms)
+    √ PUT /api/v1/booklists/:id (4 ms)
+    √ DELETE /api/v1/booklists/:id (5 ms)
+    √ POST /api/v1/booklists/:id/comments (4 ms)
+    √ DELETE /api/v1/booklists/:id/comments/:commentId (4 ms)
+    √ GET /api/v1/booklists/isbn/:isbn (8 ms)
+
+PASS tests/booklist.controller1.test.js
+  BookListController.getBookList
+    √ returns 200 with book list (4 ms)
+    √ returns 404 when not found (1 ms)
+
+(node:119588) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/mongo.test.js
+  mongo.close
+    √ closes client and clears db/client references (4 ms)
+
+(node:74052) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"level":"info","message":"Connected to Mongo @ mongodb://127.0.0.1:55360/","service":"booklists-api"}
+{"level":"info","message":"Selected Mongo database named : testdb","service":"booklists-api"}
+{"level":"info","message":"Ensured index on field 'id' (unique) for collection 'booklists'","service":"booklists-api"}
+PASS tests/booklist.model.test.js
+  BookListModel
+    √ insertOne: inserts a book (24 ms)
+    √ findAll: returns a list (7 ms)
+    √ findOne: returns single book (6 ms)
+    √ findOne: returns null when not found (5 ms)
+    √ updateOne: updates book data (10 ms)
+    √ updateOne: returns null when ID not found (4 ms)
+    √ findPotentialDuplicates returns empty array when title or author missing (4 ms)
+    √ findPotentialDuplicates finds matching books by title and author (case-insensitive) (11 ms)
+    √ replaceOne: replaces book entirely (8 ms)
+    √ replaceOne: returns null when not found (4 ms)
+    √ deleteOne: deletes a book (6 ms)
+    √ deleteOne: returns false when not found (3 ms)
+    √ addComment: adds a comment to a book (5 ms)
+    √ addComment: returns null when book missing (3 ms)
+    √ deleteComment: removes a comment (7 ms)
+    √ deleteComment: returns null if comment or book missing (4 ms)
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+-------------------------|---------|----------|---------|---------|-------------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
+-------------------------|---------|----------|---------|---------|-------------------------
+All files                |   94.32 |    81.16 |   93.75 |   95.46 |                         
+ controllers             |   96.15 |    73.52 |     100 |   96.15 |                         
+  booklist.controller.js |   94.82 |    76.92 |     100 |   94.82 | 44,104-105              
+  feedback.controller.js |     100 |     62.5 |     100 |     100 | 42-60                   
+ lib                     |   95.23 |        0 |     100 |   95.23 |                         
+  constants.js           |     100 |      100 |     100 |     100 |                         
+  logger.js              |     100 |      100 |     100 |     100 |                         
+  mongo.js               |   93.75 |        0 |     100 |   93.75 | 33                      
+ models                  |    93.5 |       80 |   92.59 |   94.36 |                         
+  booklist.model.js      |   94.91 |       80 |   94.44 |   96.22 | 82,213                  
+  feedback.model.js      |   88.88 |      100 |   88.88 |   88.88 | 74-75                   
+ services                |   93.81 |    85.71 |      90 |   95.62 |                         
+  booklist.service.js    |   92.72 |     85.1 |   86.66 |   94.83 | 206,266-268,274,342-344 
+  feedback.service.js    |     100 |      100 |     100 |     100 |                         
+-------------------------|---------|----------|---------|---------|-------------------------
+Test Suites: 13 passed, 13 total
+Tests:       109 passed, 109 total
+Snapshots:   0 total
+Time:        3.21 s
+Ran all test suites.
