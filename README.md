@@ -94,34 +94,6 @@ Unit tests focus on executing real application logic in isolation.
 
 - This approach ensures business logic is fully exercised and reliable.
 
-### Route Testing
-
-Route tests are implemented using Supertest and intentionally mock controller methods.
-
-This allows route tests to:
-
-- Confirm endpoint paths and HTTP verbs
-
-- Validate request/response handling
-
-- Avoid duplicate execution of controller and service logic
-
-- Remain fast and deterministic
-
-Because controller logic is mocked during route tests, these tests do not increase code coverage percentages. This behavior is expected and aligns with industry best practices.
-
-### Why Coverage Is Not 100%
-
-Coverage below 100% reflects:
-
-- Defensive guard clauses
-
-- Error-handling branches
-
-- Code paths requiring invalid or malformed input
-
-These paths are intentionally isolated to unit tests rather than route tests to preserve test clarity and maintain separation of concerns.
-
 ### Running Tests
 
 To run the full test suite and to generate coverage report:
